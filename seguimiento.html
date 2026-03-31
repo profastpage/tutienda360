@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Seguimiento de Pedido - TuTienda360</title>
+    <meta name="theme-color" content="#0061FF">
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Iconos -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/seguimiento.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <button class="mobile-menu-btn" aria-label="Abrir menú" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <a href="index.html" class="logo">
+                <span class="logo-text">TuTienda<span class="logo-highlight">360</span></span>
+            </a>
+
+            <div class="search-bar">
+                <form class="search-form" id="searchForm">
+                    <input type="text" class="search-input" placeholder="Buscar productos..." id="searchInput">
+                    <button type="submit" class="search-button" aria-label="Buscar">
+                        <i class="ph ph-magnifying-glass"></i>
+                    </button>
+                </form>
+            </div>
+
+            <nav class="main-nav">
+                <button class="nav-link theme-toggle" id="themeToggle">
+                    <i class="ph ph-moon"></i>
+                </button>
+                <a href="login.html" class="nav-link" id="navAccount">
+                    <i class="ph ph-user"></i>
+                </a>
+                <a href="favoritos.html" class="nav-link" id="navFavorites">
+                    <i class="ph ph-heart"></i>
+                    <span class="favorites-count" id="favoritesCount">0</span>
+                </a>
+                <a href="carrito.html" class="nav-link cart-link">
+                    <i class="ph ph-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Menú Mobile -->
+    <div class="mobile-menu-overlay" id="mobileMenu" onclick="toggleMobileMenu()">
+        <div class="mobile-menu-content" onclick="event.stopPropagation()">
+            <div class="mobile-menu-header">
+                <span class="logo-text">TuTienda<span class="logo-highlight">360</span></span>
+                <button class="mobile-menu-close" onclick="toggleMobileMenu()">
+                    <i class="ph ph-x"></i>
+                </button>
+            </div>
+            <nav class="mobile-menu-nav">
+                <a href="login.html"><i class="ph ph-user"></i> Mi Cuenta</a>
+                <a href="favoritos.html"><i class="ph ph-heart"></i> Favoritos</a>
+                <a href="carrito.html"><i class="ph ph-shopping-cart"></i> Carrito</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Contenido Principal -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Header de Seguimiento -->
+            <div class="seguimiento-header">
+                <a href="perfil.html" class="btn-back">
+                    <i class="ph ph-arrow-left"></i>
+                    Volver
+                </a>
+                <h1 class="seguimiento-title">Seguimiento de Pedido</h1>
+                <p class="pedido-number" id="pedidoNumero">Pedido #000000</p>
+            </div>
+
+            <!-- Timeline de Estados -->
+            <div class="timeline-container">
+                <div class="timeline">
+                    <div class="timeline-item completed" id="step1">
+                        <div class="timeline-marker">
+                            <i class="ph ph-check"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Pedido Confirmado</h3>
+                            <p id="fecha1">--/--/----</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" id="step2">
+                        <div class="timeline-marker">
+                            <i class="ph ph-package"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>En Proceso</h3>
+                            <p id="fecha2">--/--/----</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" id="step3">
+                        <div class="timeline-marker">
+                            <i class="ph ph-truck"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Enviado</h3>
+                            <p id="fecha3">--/--/----</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" id="step4">
+                        <div class="timeline-marker">
+                            <i class="ph ph-house"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Entregado</h3>
+                            <p id="fecha4">--/--/----</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Estado Actual -->
+            <div class="estado-actual">
+                <div class="estado-icon">
+                    <i class="ph ph-truck" id="estadoIcon"></i>
+                </div>
+                <div class="estado-info">
+                    <h2 id="estadoTitulo">Tu pedido está en camino</h2>
+                    <p id="estadoDescripcion">Estamos preparando tu pedido para envío</p>
+                </div>
+            </div>
+
+            <!-- Información de Envío -->
+            <div class="info-envio">
+                <h3>Información de Envío</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <i class="ph ph-map-pin"></i>
+                        <div>
+                            <strong>Dirección</strong>
+                            <p id="direccionEnvio">Av. Principal 123, Lima</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="ph ph-clock"></i>
+                        <div>
+                            <strong>Tiempo estimado</strong>
+                            <p id="tiempoEstimado">24-48 horas</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="ph ph-phone"></i>
+                        <div>
+                            <strong>Contacto</strong>
+                            <p id="contactoEnvio">+51 999 999 999</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Productos del Pedido -->
+            <div class="productos-pedido">
+                <h3>Productos</h3>
+                <div class="productos-list" id="productosList">
+                    <!-- Productos generados por JS -->
+                </div>
+            </div>
+
+            <!-- Resumen -->
+            <div class="resumen-pedido">
+                <h3>Resumen</h3>
+                <div class="resumen-row">
+                    <span>Subtotal</span>
+                    <span id="resumenSubtotal">S/ 0.00</span>
+                </div>
+                <div class="resumen-row">
+                    <span>Envío</span>
+                    <span id="resumenEnvio">S/ 0.00</span>
+                </div>
+                <div class="resumen-row total">
+                    <span>Total</span>
+                    <span id="resumenTotal">S/ 0.00</span>
+                </div>
+            </div>
+
+            <!-- Botones de Acción -->
+            <div class="action-buttons">
+                <a href="https://wa.me/51999999999" class="btn btn-whatsapp">
+                    <i class="ph ph-whatsapp-logo"></i>
+                    Contactar por WhatsApp
+                </a>
+                <a href="tel:0800123456" class="btn btn-phone">
+                    <i class="ph ph-phone"></i>
+                    Llamar al 0800-123-456
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4 class="footer-title">Sobre TuTienda360</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Quiénes somos</a></li>
+                        <li><a href="#">Trabaja con nosotros</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Ayuda</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Centro de ayuda</a></li>
+                        <li><a href="#">Envíos y entregas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Términos y condiciones</a></li>
+                        <li><a href="#">Política de privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Contacto</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Atención al cliente</a></li>
+                        <li><a href="#">0800-123-456</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">© 2026 TuTienda360 Perú. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/theme.js"></script>
+    <script src="scripts/favoritos.js"></script>
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/seguimiento.js"></script>
+</body>
+</html>
