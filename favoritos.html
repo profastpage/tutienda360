@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Mis Favoritos - TuTienda360</title>
+    <meta name="description" content="Tus productos favoritos guardados">
+    <meta name="theme-color" content="#0061FF">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Iconos -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/favoritos.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <!-- Menú Hamburguesa -->
+            <button class="mobile-menu-btn" aria-label="Abrir menú" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <span class="logo-text">TuTienda<span class="logo-highlight">360</span></span>
+            </a>
+
+            <!-- Buscador -->
+            <div class="search-bar">
+                <form class="search-form" id="searchForm">
+                    <input type="text" class="search-input" placeholder="Buscar productos, marcas y más..." id="searchInput">
+                    <button type="submit" class="search-button" aria-label="Buscar">
+                        <i class="ph ph-magnifying-glass"></i>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Navegación -->
+            <nav class="main-nav">
+                <!-- Toggle Modo Oscuro -->
+                <button class="nav-link theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                    <i class="ph ph-moon"></i>
+                    <span class="theme-label">Tema</span>
+                </button>
+                
+                <a href="login.html" class="nav-link" id="navAccount" aria-label="Mi cuenta">
+                    <i class="ph ph-user"></i>
+                    <span class="nav-text">Cuenta</span>
+                </a>
+                
+                <a href="favoritos.html" class="nav-link active" aria-label="Favoritos" id="navFavorites">
+                    <i class="ph ph-heart-straight"></i>
+                    <span class="nav-text">Favoritos</span>
+                    <span class="favorites-count" id="favoritesCount">0</span>
+                </a>
+                
+                <a href="carrito.html" class="nav-link cart-link" aria-label="Carrito">
+                    <i class="ph ph-shopping-cart"></i>
+                    <span class="nav-text">Carrito</span>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </nav>
+        </div>
+
+        <!-- Navegación Secundaria -->
+        <nav class="secondary-nav">
+            <ul class="categories-list">
+                <li><a href="categorias.html?cat=ofertas" class="category-link"><i class="ph ph-tag"></i> Ofertas</a></li>
+                <li><a href="categorias.html?cat=tiendas" class="category-link"><i class="ph ph-storefront"></i> Tiendas</a></li>
+                <li><a href="categorias.html?cat=envios" class="category-link"><i class="ph ph-package"></i> Envíos</a></li>
+                <li><a href="categorias.html?cat=protegida" class="category-link"><i class="ph ph-shield-check"></i> Compra Protegida</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Menú Mobile Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenu" onclick="toggleMobileMenu()">
+        <div class="mobile-menu-content" onclick="event.stopPropagation()">
+            <div class="mobile-menu-header">
+                <span class="logo-text">TuTienda<span class="logo-highlight">360</span></span>
+                <button class="mobile-menu-close" onclick="toggleMobileMenu()">
+                    <i class="ph ph-x"></i>
+                </button>
+            </div>
+            <nav class="mobile-menu-nav">
+                <a href="login.html"><i class="ph ph-user"></i> Mi Cuenta</a>
+                <a href="favoritos.html"><i class="ph ph-heart"></i> Favoritos</a>
+                <a href="carrito.html"><i class="ph ph-shopping-cart"></i> Carrito</a>
+                <a href="categorias.html?cat=ropa"><i class="ph ph-tshirt"></i> Ropa</a>
+                <a href="categorias.html?cat=celulares"><i class="ph ph-device-mobile"></i> Celulares</a>
+                <a href="categorias.html?cat=computacion"><i class="ph ph-laptop"></i> Computación</a>
+                <a href="categorias.html?cat=hogar"><i class="ph ph-house"></i> Hogar</a>
+                <a href="categorias.html?cat=gaming"><i class="ph ph-game-controller"></i> Gaming</a>
+                <a href="categorias.html?cat=deportes"><i class="ph ph-dumbbell"></i> Deportes</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Contenido Principal -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Header de Página -->
+            <div class="page-header">
+                <h1 class="page-title">
+                    <i class="ph ph-heart-straight"></i>
+                    Mis Favoritos
+                </h1>
+                <p class="page-subtitle">Tus productos guardados en un solo lugar</p>
+            </div>
+
+            <!-- Contenido de Favoritos -->
+            <div class="favorites-content">
+                <!-- Estado Vacío -->
+                <div class="favorites-empty" id="favoritesEmpty">
+                    <div class="empty-icon">
+                        <i class="ph ph-heart"></i>
+                    </div>
+                    <h2 class="empty-title">Aún no tienes favoritos</h2>
+                    <p class="empty-description">Guarda tus productos favoritos para encontrarlos rápidamente</p>
+                    <a href="index.html" class="btn btn-primary">
+                        <i class="ph ph-shopping-bag"></i>
+                        Explorar productos
+                    </a>
+                </div>
+
+                <!-- Grid de Productos Favoritos -->
+                <div class="favorites-grid" id="favoritesGrid">
+                    <!-- Se llena dinámicamente con JS -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4 class="footer-title">Sobre TuTienda360</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Quiénes somos</a></li>
+                        <li><a href="#">Trabaja con nosotros</a></li>
+                        <li><a href="#">Prensa</a></li>
+                        <li><a href="#">Inversionistas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Ayuda</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Centro de ayuda</a></li>
+                        <li><a href="#">Envíos y entregas</a></li>
+                        <li><a href="#">Devoluciones</a></li>
+                        <li><a href="#">Preguntas frecuentes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Términos legales</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Términos y condiciones</a></li>
+                        <li><a href="#">Política de privacidad</a></li>
+                        <li><a href="#">Política de cookies</a></li>
+                        <li><a href="#">Libro de reclamaciones</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Contacto</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Atención al cliente</a></li>
+                        <li><a href="#">Chat en vivo</a></li>
+                        <li><a href="#">Teléfono: 0800-123-456</a></li>
+                        <li><a href="#">Email: ayuda@tutienda360.pe</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p class="copyright">© 2026 TuTienda360 Perú. Todos los derechos reservados.</p>
+                    <div class="footer-legal">
+                        <a href="#">Términos y condiciones</a>
+                        <a href="#">Política de privacidad</a>
+                        <a href="#">Libro de reclamaciones</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/theme.js"></script>
+    <script src="scripts/favoritos.js"></script>
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/favoritos-page.js"></script>
+</body>
+</html>

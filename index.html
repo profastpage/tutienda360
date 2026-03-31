@@ -28,12 +28,12 @@
                 <span></span>
                 <span></span>
             </button>
-            
+
             <!-- Logo -->
             <a href="index.html" class="logo">
                 <span class="logo-text">TuTienda<span class="logo-highlight">360</span></span>
             </a>
-            
+
             <!-- Buscador -->
             <div class="search-bar">
                 <form class="search-form" id="searchForm">
@@ -43,31 +43,41 @@
                     </button>
                 </form>
             </div>
-            
+
             <!-- Navegación -->
             <nav class="main-nav">
+                <!-- Toggle Modo Oscuro -->
+                <button class="nav-link theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                    <i class="ph ph-moon"></i>
+                    <span class="theme-label">Tema</span>
+                </button>
+                
                 <a href="login.html" class="nav-link" id="navAccount" aria-label="Mi cuenta">
                     <i class="ph ph-user"></i>
-                    <span>Cuenta</span>
+                    <span class="nav-text">Cuenta</span>
                 </a>
-                <a href="#" class="nav-link" aria-label="Favoritos">
+                
+                <a href="favoritos.html" class="nav-link" aria-label="Favoritos" id="navFavorites">
                     <i class="ph ph-heart"></i>
-                    <span>Favoritos</span>
+                    <span class="nav-text">Favoritos</span>
+                    <span class="favorites-count" id="favoritesCount">0</span>
                 </a>
+                
                 <a href="carrito.html" class="nav-link cart-link" aria-label="Carrito">
                     <i class="ph ph-shopping-cart"></i>
+                    <span class="nav-text">Carrito</span>
                     <span class="cart-count" id="cartCount">0</span>
                 </a>
             </nav>
         </div>
-        
+
         <!-- Navegación Secundaria -->
         <nav class="secondary-nav">
             <ul class="categories-list">
                 <li><a href="categorias.html?cat=ofertas" class="category-link"><i class="ph ph-tag"></i> Ofertas</a></li>
                 <li><a href="categorias.html?cat=tiendas" class="category-link"><i class="ph ph-storefront"></i> Tiendas</a></li>
                 <li><a href="categorias.html?cat=envios" class="category-link"><i class="ph ph-package"></i> Envíos</a></li>
-                <li><a href="categorias.html?cat=protegida" class="category-link"><i class="ph ph-shield-check"></i> Compra</a></li>
+                <li><a href="categorias.html?cat=protegida" class="category-link"><i class="ph ph-shield-check"></i> Compra Protegida</a></li>
             </ul>
         </nav>
     </header>
@@ -180,6 +190,9 @@
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop" alt="Smartphone Samsung" loading="lazy">
                         <span class="discount-badge">-25%</span>
+                        <button class="favorite-btn" onclick="toggleFavorite(event, {id: 'samsung-a54', name: 'Smartphone Samsung Galaxy A54 5G', price: 974, image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop'})" aria-label="Agregar a favoritos">
+                            <i class="ph ph-heart"></i>
+                        </button>
                     </div>
                     <div class="product-info">
                         <h3 class="product-title">Smartphone Samsung Galaxy A54 5G 128GB</h3>
@@ -203,6 +216,9 @@
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop" alt="Laptop HP" loading="lazy">
                         <span class="discount-badge">-15%</span>
+                        <button class="favorite-btn" onclick="toggleFavorite(event, {id: 'hp-pavilion', name: 'Laptop HP Pavilion 15.6"', price: 2124, image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop'})" aria-label="Agregar a favoritos">
+                            <i class="ph ph-heart"></i>
+                        </button>
                     </div>
                     <div class="product-info">
                         <h3 class="product-title">Laptop HP Pavilion 15.6" Intel Core i5</h3>
@@ -226,6 +242,9 @@
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop" alt="Auriculares Sony" loading="lazy">
                         <span class="discount-badge">-40%</span>
+                        <button class="favorite-btn" onclick="toggleFavorite(event, {id: 'sony-xm5', name: 'Auriculares Sony WH-1000XM5', price: 959, image: 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop'})" aria-label="Agregar a favoritos">
+                            <i class="ph ph-heart"></i>
+                        </button>
                     </div>
                     <div class="product-info">
                         <h3 class="product-title">Auriculares Sony WH-1000XM5</h3>
@@ -249,6 +268,9 @@
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400&h=400&fit=crop" alt="Apple Watch" loading="lazy">
                         <span class="discount-badge">-30%</span>
+                        <button class="favorite-btn" onclick="toggleFavorite(event, {id: 'apple-watch', name: 'Apple Watch SE 44mm', price: 839, image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400&h=400&fit=crop'})" aria-label="Agregar a favoritos">
+                            <i class="ph ph-heart"></i>
+                        </button>
                     </div>
                     <div class="product-info">
                         <h3 class="product-title">Apple Watch SE 44mm GPS</h3>
@@ -272,6 +294,9 @@
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1593784991095-a20506948430?w=400&h=400&fit=crop" alt="Smart TV LG" loading="lazy">
                         <span class="discount-badge">-20%</span>
+                        <button class="favorite-btn" onclick="toggleFavorite(event, {id: 'lg-tv', name: 'Smart TV LG 55" 4K', price: 1519, image: 'https://images.unsplash.com/photo-1593784991095-a20506948430?w=400&h=400&fit=crop'})" aria-label="Agregar a favoritos">
+                            <i class="ph ph-heart"></i>
+                        </button>
                     </div>
                     <div class="product-info">
                         <h3 class="product-title">Smart TV LG 55" 4K UHD</h3>
@@ -295,6 +320,9 @@
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=400&h=400&fit=crop" alt="Reloj Casio" loading="lazy">
                         <span class="discount-badge">-35%</span>
+                        <button class="favorite-btn" onclick="toggleFavorite(event, {id: 'casio-gshock', name: 'Casio G-Shock Digital', price: 259, image: 'https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=400&h=400&fit=crop'})" aria-label="Agregar a favoritos">
+                            <i class="ph ph-heart"></i>
+                        </button>
                     </div>
                     <div class="product-info">
                         <h3 class="product-title">Casio G-Shock Digital Negro</h3>
@@ -352,6 +380,9 @@
                 <article class="product-card">
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop" alt="Auriculares Premium" loading="lazy">
+                        <button class="favorite-btn" onclick="toggleFavorite(event, {id: 'auriculares', name: 'Auriculares Premium', price: 299, image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop'})" aria-label="Agregar a favoritos">
+                            <i class="ph ph-heart"></i>
+                        </button>
                     </div>
                     <div class="product-info">
                         <h3 class="product-title">Auriculares Premium Wireless</h3>
@@ -373,6 +404,9 @@
                 <article class="product-card">
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&h=400&fit=crop" alt="Cámara Sony" loading="lazy">
+                        <button class="favorite-btn" onclick="toggleFavorite(event, {id: 'sony-alpha', name: 'Cámara Sony Alpha', price: 3299, image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&h=400&fit=crop'})" aria-label="Agregar a favoritos">
+                            <i class="ph ph-heart"></i>
+                        </button>
                     </div>
                     <div class="product-info">
                         <h3 class="product-title">Cámara Mirrorless Sony Alpha</h3>
@@ -394,6 +428,9 @@
                 <article class="product-card">
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400&h=400&fit=crop" alt="iPad Air" loading="lazy">
+                        <button class="favorite-btn" onclick="toggleFavorite(event, {id: 'ipad-air', name: 'iPad Air 64GB', price: 2199, image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400&h=400&fit=crop'})" aria-label="Agregar a favoritos">
+                            <i class="ph ph-heart"></i>
+                        </button>
                     </div>
                     <div class="product-info">
                         <h3 class="product-title">Tablet iPad Air 64GB WiFi</h3>
@@ -415,6 +452,9 @@
                 <article class="product-card">
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?w=400&h=400&fit=crop" alt="Jardinería" loading="lazy">
+                        <button class="favorite-btn" onclick="toggleFavorite(event, {id: 'jardineria', name: 'Kit Jardinería', price: 89, image: 'https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?w=400&h=400&fit=crop'})" aria-label="Agregar a favoritos">
+                            <i class="ph ph-heart"></i>
+                        </button>
                     </div>
                     <div class="product-info">
                         <h3 class="product-title">Kit de Jardinería Interior</h3>
@@ -492,6 +532,8 @@
     </footer>
 
     <!-- Scripts -->
+    <script src="scripts/theme.js"></script>
+    <script src="scripts/favoritos.js"></script>
     <script src="scripts/utils.js"></script>
     <script src="scripts/main.js"></script>
 </body>
