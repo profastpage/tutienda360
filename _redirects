@@ -1,0 +1,16 @@
+# Cloudflare Pages Redirects & Rewrites
+# Para URLs limpias sin .html
+
+# Rewrites para URLs limpias
+/favoritos /* /favoritos.html 200
+/carrito /* /carrito.html 200
+/categorias /* /categorias.html 200
+/checkout /* /checkout.html 200
+/login /* /login.html 200
+/producto /* /producto-detalle.html 200
+/perfil /* /perfil.html 200
+/seguimiento /* /seguimiento.html 200
+/busqueda /* /busqueda.html 200
+
+# SPA fallback para rutas que no existen
+/* /index.html 200
