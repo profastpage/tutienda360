@@ -7,14 +7,22 @@
     <meta name="description" content="Encuentra miles de productos a los mejores precios. Envíos rápidos y seguros a todo el país.">
     <meta name="theme-color" content="#0061FF">
     
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="TuTienda360">
+    <link rel="apple-touch-icon" href="images/icon-192.png">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Iconos -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    
+
     <!-- Estilos -->
     <link rel="stylesheet" href="styles/main.css">
 </head>
@@ -37,7 +45,7 @@
             <!-- Buscador -->
             <div class="search-bar">
                 <form class="search-form" id="searchForm">
-                    <input type="text" class="search-input" placeholder="Buscar productos, marcas y más..." id="searchInput">
+                    <input type="text" class="search-input" placeholder="Buscar productos..." id="searchInput">
                     <button type="submit" class="search-button" aria-label="Buscar">
                         <i class="ph ph-magnifying-glass"></i>
                     </button>
@@ -49,23 +57,19 @@
                 <!-- Toggle Modo Oscuro -->
                 <button class="nav-link theme-toggle" id="themeToggle" aria-label="Cambiar tema">
                     <i class="ph ph-moon"></i>
-                    <span class="theme-label">Tema</span>
                 </button>
                 
                 <a href="login.html" class="nav-link" id="navAccount" aria-label="Mi cuenta">
                     <i class="ph ph-user"></i>
-                    <span class="nav-text">Cuenta</span>
                 </a>
                 
                 <a href="favoritos.html" class="nav-link" aria-label="Favoritos" id="navFavorites">
                     <i class="ph ph-heart"></i>
-                    <span class="nav-text">Favoritos</span>
                     <span class="favorites-count" id="favoritesCount">0</span>
                 </a>
                 
                 <a href="carrito.html" class="nav-link cart-link" aria-label="Carrito">
                     <i class="ph ph-shopping-cart"></i>
-                    <span class="nav-text">Carrito</span>
                     <span class="cart-count" id="cartCount">0</span>
                 </a>
             </nav>
@@ -536,5 +540,17 @@
     <script src="scripts/favoritos.js"></script>
     <script src="scripts/utils.js"></script>
     <script src="scripts/main.js"></script>
+    
+    <!-- PWA Service Worker -->
+    <script>
+        // Registrar Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => console.log('Service Worker registrado', reg))
+                    .catch(err => console.log('Error al registrar SW:', err));
+            });
+        }
+    </script>
 </body>
 </html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Detalle de Producto - TuTienda360</title>
+    <meta name="description" content="Compra este producto al mejor precio">
+    <meta name="theme-color" content="#0061FF">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Iconos -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/producto.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <button class="mobile-menu-btn" aria-label="Abrir menú" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <a href="index.html" class="logo">
+                <span class="logo-text">TuTienda<span class="logo-highlight">360</span></span>
+            </a>
+
+            <div class="search-bar">
+                <form class="search-form" id="searchForm">
+                    <input type="text" class="search-input" placeholder="Buscar productos..." id="searchInput">
+                    <button type="submit" class="search-button" aria-label="Buscar">
+                        <i class="ph ph-magnifying-glass"></i>
+                    </button>
+                </form>
+            </div>
+
+            <nav class="main-nav">
+                <button class="nav-link theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                    <i class="ph ph-moon"></i>
+                </button>
+                <a href="login.html" class="nav-link" id="navAccount">
+                    <i class="ph ph-user"></i>
+                </a>
+                <a href="favoritos.html" class="nav-link" id="navFavorites">
+                    <i class="ph ph-heart"></i>
+                    <span class="favorites-count" id="favoritesCount">0</span>
+                </a>
+                <a href="carrito.html" class="nav-link cart-link">
+                    <i class="ph ph-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Menú Mobile Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenu" onclick="toggleMobileMenu()">
+        <div class="mobile-menu-content" onclick="event.stopPropagation()">
+            <div class="mobile-menu-header">
+                <span class="logo-text">TuTienda<span class="logo-highlight">360</span></span>
+                <button class="mobile-menu-close" onclick="toggleMobileMenu()">
+                    <i class="ph ph-x"></i>
+                </button>
+            </div>
+            <nav class="mobile-menu-nav">
+                <a href="login.html"><i class="ph ph-user"></i> Mi Cuenta</a>
+                <a href="favoritos.html"><i class="ph ph-heart"></i> Favoritos</a>
+                <a href="carrito.html"><i class="ph ph-shopping-cart"></i> Carrito</a>
+                <a href="categorias.html?cat=ropa"><i class="ph ph-tshirt"></i> Ropa</a>
+                <a href="categorias.html?cat=celulares"><i class="ph ph-device-mobile"></i> Celulares</a>
+                <a href="categorias.html?cat=computacion"><i class="ph ph-laptop"></i> Computación</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-bar">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html">Inicio</a>
+                <span class="separator">/</span>
+                <a href="categorias.html">Categoría</a>
+                <span class="separator">/</span>
+                <span class="current" id="breadcrumbProduct">Producto</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Contenido Principal -->
+    <main class="main-content">
+        <div class="container">
+            <div class="product-detail">
+                <!-- Galería de Imágenes -->
+                <div class="product-gallery">
+                    <div class="main-image">
+                        <img id="mainImage" src="" alt="Producto">
+                        <button class="favorite-btn-large" onclick="toggleFavoriteFromDetail()" aria-label="Agregar a favoritos">
+                            <i class="ph ph-heart"></i>
+                        </button>
+                    </div>
+                    <div class="thumbnail-list" id="thumbnailList">
+                        <!-- Thumbnails generados por JS -->
+                    </div>
+                </div>
+
+                <!-- Información del Producto -->
+                <div class="product-info-section">
+                    <div class="product-header">
+                        <span class="product-category" id="productCategory">Categoría</span>
+                        <h1 class="product-name" id="productName">Nombre del Producto</h1>
+                        
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="ph ph-star-fill"></i>
+                                <i class="ph ph-star-fill"></i>
+                                <i class="ph ph-star-fill"></i>
+                                <i class="ph ph-star-fill"></i>
+                                <i class="ph ph-star-half"></i>
+                            </div>
+                            <span class="rating-count">(4.5) 128 opiniones</span>
+                        </div>
+                    </div>
+
+                    <div class="product-pricing">
+                        <div class="price-current" id="productPrice">S/ 0.00</div>
+                        <div class="price-old" id="productOldPrice">S/ 0.00</div>
+                        <div class="discount-badge-large" id="productDiscount">-0%</div>
+                    </div>
+
+                    <div class="product-shipping">
+                        <div class="shipping-item">
+                            <i class="ph ph-truck"></i>
+                            <div>
+                                <strong>Envío GRATIS</strong>
+                                <span>Llega en 24-48 horas</span>
+                            </div>
+                        </div>
+                        <div class="shipping-item">
+                            <i class="ph ph-shield-check"></i>
+                            <div>
+                                <strong>Compra protegida</strong>
+                                <span>Garantía de devolución</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Selector de Cantidad -->
+                    <div class="quantity-selector">
+                        <label>Cantidad:</label>
+                        <div class="quantity-controls">
+                            <button class="qty-btn" onclick="decreaseQuantity()">-</button>
+                            <input type="number" id="quantityInput" value="1" min="1" max="10">
+                            <button class="qty-btn" onclick="increaseQuantity()">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Botones de Acción -->
+                    <div class="action-buttons">
+                        <button class="btn-add-cart-large" onclick="addToCartFromDetail()">
+                            <i class="ph ph-shopping-cart"></i>
+                            Agregar al Carrito
+                        </button>
+                        <button class="btn-buy-now" onclick="buyNow()">
+                            <i class="ph ph-lightning"></i>
+                            Comprar Ahora
+                        </button>
+                    </div>
+
+                    <!-- Código del Producto -->
+                    <div class="product-meta">
+                        <p><strong>Código:</strong> <span id="productSku">PROD001</span></p>
+                        <p><strong>Disponibilidad:</strong> <span class="stock-available">En Stock</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabs de Información -->
+            <div class="product-tabs">
+                <div class="tab-headers">
+                    <button class="tab-header active" data-tab="description">Descripción</button>
+                    <button class="tab-header" data-tab="specifications">Especificaciones</button>
+                    <button class="tab-header" data-tab="reviews">Opiniones</button>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-panel active" id="description">
+                        <h3>Descripción del Producto</h3>
+                        <p id="productDescription">Descripción detallada del producto...</p>
+                    </div>
+                    <div class="tab-panel" id="specifications">
+                        <h3>Especificaciones Técnicas</h3>
+                        <ul class="specs-list" id="productSpecs">
+                            <!-- Especificaciones generadas por JS -->
+                        </ul>
+                    </div>
+                    <div class="tab-panel" id="reviews">
+                        <h3>Opiniones de Clientes</h3>
+                        <div class="reviews-summary">
+                            <div class="average-rating">
+                                <span class="rating-number">4.5</span>
+                                <div class="stars-large">
+                                    <i class="ph ph-star-fill"></i>
+                                    <i class="ph ph-star-fill"></i>
+                                    <i class="ph ph-star-fill"></i>
+                                    <i class="ph ph-star-fill"></i>
+                                    <i class="ph ph-star-half"></i>
+                                </div>
+                                <span class="total-reviews">128 opiniones</span>
+                            </div>
+                        </div>
+                        <div class="reviews-list" id="reviewsList">
+                            <!-- Reseñas generadas por JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Productos Relacionados -->
+            <section class="related-products">
+                <h2 class="section-title">Productos Relacionados</h2>
+                <div class="products-grid" id="relatedProducts">
+                    <!-- Productos generados por JS -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4 class="footer-title">Sobre TuTienda360</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Quiénes somos</a></li>
+                        <li><a href="#">Trabaja con nosotros</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Ayuda</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Centro de ayuda</a></li>
+                        <li><a href="#">Envíos y entregas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Términos y condiciones</a></li>
+                        <li><a href="#">Política de privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Contacto</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Atención al cliente</a></li>
+                        <li><a href="#">0800-123-456</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">© 2026 TuTienda360 Perú. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/theme.js"></script>
+    <script src="scripts/favoritos.js"></script>
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/producto-detalle.js"></script>
+</body>
+</html>

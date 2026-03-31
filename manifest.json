@@ -1,0 +1,27 @@
+{
+  "name": "TuTienda360 - Tu marketplace de confianza",
+  "short_name": "TuTienda360",
+  "description": "Encuentra miles de productos a los mejores precios. Envíos rápidos y seguros a todo el país.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#F8F9FA",
+  "theme_color": "#0061FF",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["shopping", "business"],
+  "lang": "es-PE",
+  "dir": "ltr"
+}

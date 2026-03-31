@@ -1,0 +1,363 @@
+/* ========================================
+   Página de Perfil - Mobile First
+   ======================================== */
+
+.perfil-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-4);
+    padding: var(--spacing-6) var(--spacing-4);
+    background: var(--surface);
+    border-radius: var(--border-radius-xl);
+    margin: var(--spacing-5) 0;
+    box-shadow: var(--shadow-sm);
+}
+
+.perfil-avatar {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    border-radius: var(--border-radius-full);
+    color: var(--color-white);
+    font-size: 40px;
+    flex-shrink: 0;
+}
+
+.perfil-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.perfil-name {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.perfil-email {
+    font-size: var(--font-size-sm);
+    color: var(--text-tertiary);
+}
+
+/* Tabs */
+.perfil-tabs {
+    display: flex;
+    gap: var(--spacing-2);
+    margin-bottom: var(--spacing-5);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 0 var(--spacing-4);
+}
+
+.perfil-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.perfil-tab {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    padding: var(--spacing-3) var(--spacing-5);
+    background: var(--bg-tertiary);
+    border: none;
+    border-radius: var(--border-radius-xl);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+}
+
+.perfil-tab i {
+    font-size: var(--font-size-base);
+}
+
+.perfil-tab.active {
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+/* Contenido */
+.perfil-content {
+    padding: 0 var(--spacing-4) var(--spacing-8);
+}
+
+.tab-title {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-4);
+}
+
+/* Pedidos Empty */
+.pedidos-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-10) var(--spacing-4);
+    text-align: center;
+    background: var(--surface);
+    border-radius: var(--border-radius-xl);
+}
+
+.pedidos-empty i {
+    font-size: 64px;
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-4);
+}
+
+.pedidos-empty p {
+    font-size: var(--font-size-base);
+    color: var(--text-tertiary);
+    margin-bottom: var(--spacing-5);
+}
+
+/* Lista de Pedidos */
+.pedidos-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+}
+
+.pedido-card {
+    background: var(--surface);
+    border-radius: var(--border-radius-xl);
+    padding: var(--spacing-4);
+    box-shadow: var(--shadow-sm);
+}
+
+.pedido-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-3);
+    padding-bottom: var(--spacing-3);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.pedido-id {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.pedido-fecha {
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+}
+
+.pedido-status {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-1);
+    padding: var(--spacing-1) var(--spacing-3);
+    border-radius: var(--border-radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.pedido-status.enviado {
+    background: rgba(0, 200, 83, 0.1);
+    color: var(--color-success);
+}
+
+.pedido-status.proceso {
+    background: rgba(255, 160, 0, 0.1);
+    color: var(--color-warning);
+}
+
+.pedido-status.entregado {
+    background: rgba(0, 97, 255, 0.1);
+    color: var(--color-primary);
+}
+
+.pedido-items {
+    margin-bottom: var(--spacing-3);
+}
+
+.pedido-item {
+    display: flex;
+    gap: var(--spacing-3);
+    padding: var(--spacing-2) 0;
+}
+
+.pedido-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: var(--border-radius-md);
+}
+
+.pedido-item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.pedido-item-name {
+    font-size: var(--font-size-sm);
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pedido-item-qty {
+    font-size: var(--font-size-xs);
+    color: var(--text-tertiary);
+}
+
+.pedido-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--spacing-3);
+    border-top: 1px solid var(--border-color);
+}
+
+.pedido-total {
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.pedido-ver-mas {
+    font-size: var(--font-size-sm);
+    color: var(--color-primary);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Formulario */
+.perfil-form {
+    background: var(--surface);
+    border-radius: var(--border-radius-xl);
+    padding: var(--spacing-5);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-4);
+}
+
+.form-group label {
+    display: block;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-2);
+}
+
+.form-group input {
+    width: 100%;
+    padding: var(--spacing-3);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    font-size: var(--font-size-base);
+    color: var(--text-primary);
+    background: var(--bg-secondary);
+    transition: border-color var(--transition-fast);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.form-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+    margin-top: var(--spacing-5);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-2);
+    padding: var(--spacing-3) var(--spacing-5);
+    border-radius: var(--border-radius-lg);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    border: none;
+}
+
+.btn-primary {
+    background: var(--color-primary);
+    color: var(--color-white);
+    width: 100%;
+}
+
+.btn-primary:active {
+    background: var(--color-primary-dark);
+    transform: scale(0.98);
+}
+
+.btn-logout {
+    background: var(--bg-tertiary);
+    color: var(--color-error);
+    width: 100%;
+}
+
+.btn-logout:active {
+    background: rgba(211, 47, 47, 0.1);
+}
+
+/* Tablet - 768px */
+@media (min-width: 768px) {
+    .perfil-header {
+        padding: var(--spacing-8);
+    }
+
+    .perfil-avatar {
+        width: 100px;
+        height: 100px;
+        font-size: 50px;
+    }
+
+    .perfil-name {
+        font-size: var(--font-size-2xl);
+    }
+
+    .perfil-tabs {
+        overflow-x: visible;
+        padding: 0;
+    }
+
+    .perfil-content {
+        padding: 0 0 var(--spacing-8);
+    }
+
+    .form-actions {
+        flex-direction: row;
+    }
+
+    .btn-primary,
+    .btn-logout {
+        flex: 1;
+    }
+}
+
+/* Desktop - 992px */
+@media (min-width: 992px) {
+    .perfil-header {
+        padding: var(--spacing-10);
+    }
+
+    .perfil-form {
+        padding: var(--spacing-8);
+    }
+}
