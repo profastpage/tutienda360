@@ -1,33 +1,66 @@
-# 🛒 TuTienda360 - Marketplace Mobile First
+# 🛒 TuTienda360 - Marketplace Profesional
 
-**Marketplace de e-commerce 100% responsive, desarrollado con HTML, CSS y JavaScript vanilla.**
+**Marketplace de e-commerce 100% funcional, mobile first y PWA**
+
+![TuTienda360](https://img.shields.io/badge/Version-2.0.0-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
+![PWA](https://img.shields.io/badge/PWA-Ready-orange)
 
 ---
 
 ## ✨ Características Principales
 
 ###  Mobile First & Responsive
-- Diseño **mobile first** que se adapta a todos los dispositivos
+- Diseño **mobile first** optimizado para celulares
+- Scroll solo vertical (sin scroll horizontal indeseado)
+- Navegación táctil optimizada
 - Breakpoints: 480px, 768px, 992px, 1200px
-- Menú hamburguesa para móvil
-- Scroll horizontal en navegación secundaria
-- Grid de productos adaptable (1-6 columnas)
+- Menú hamburguesa con animación suave
 
-### 🛍️ Funcionalidades Completas
-- ✅ Catálogo de productos por categorías
-- ✅ Carrito de compras con localStorage
-- ✅ Checkout completo con múltiples métodos de pago
-- ✅ Autenticación (login/registro)
-- ✅ Sistema de reseñas y calificaciones
-- ✅ Búsqueda y filtrado de productos
-- ✅ Notificaciones toast
+### 🌓 Modo Oscuro/Claro
+- Toggle en el header
+- Persistencia en localStorage
+- Detección de preferencia del sistema
+- Transiciones suaves entre temas
 
-### 🎨 Diseño Moderno
-- Tipografía Inter (Google Fonts)
-- Iconos Phosphor Icons
-- Animaciones suaves
-- Modo oscuro compatible
-- Imágenes de Unsplash
+### ❤️ Sistema de Favoritos
+- Agregar/eliminar productos favoritos
+- Página dedicada de favoritos
+- Contador en tiempo real en el header
+- Persistencia en localStorage
+
+### 🔍 Búsqueda con Autocompletado
+- Sugerencias en tiempo real
+- Highlight de coincidencias
+- 50+ productos en base de datos
+- Filtros por categoría, precio y condición
+- Ordenamiento por precio y nombre
+
+###  Seguimiento de Pedidos
+- Timeline visual con estados
+- Información detallada de envío
+- Productos del pedido
+- Botones de contacto (WhatsApp, Teléfono)
+
+### 👤 Panel de Usuario
+- Historial de pedidos
+- Información personal editable
+- Estados de pedidos en tiempo real
+- Cerrar sesión
+
+### 📲 PWA (Progressive Web App)
+- Instalable en dispositivos móviles
+- Service Worker con cache estratégico
+- Funcionamiento offline parcial
+- Meta tags para iOS y Android
+
+### ⚡ Optimizaciones de Rendimiento
+- Lazy loading nativo de imágenes
+- Intersection Observer para fallback
+- Preload de recursos críticos
+- Debounce para eventos de scroll
+- Cache de peticiones fetch
+- Throttle para funciones pesadas
 
 ---
 
@@ -35,27 +68,39 @@
 
 ```
 TuTienda360/
-├── index.html              # Homepage
-├── producto.html           # Detalle de producto
-├── carrito.html            # Carrito de compras
-├── checkout.html           # Finalizar compra
-├── login.html              # Login/Registro
-├── categorias.html         # Página de categorías
+├── index.html                 # Página principal
+├── busqueda.html              # Búsqueda con autocompletado
+├── favoritos.html             # Página de favoritos
+├── producto-detalle.html      # Detalle de producto
+├── perfil.html                # Panel de usuario
+├── seguimiento.html           # Seguimiento de pedidos
+├── carrito.html               # Carrito de compras
+├── checkout.html              # Finalizar compra
+├── login.html                 # Login/Registro
+├── categorias.html            # Página de categorías
+├── manifest.json              # PWA Manifest
+├── sw.js                      # Service Worker
 ├── styles/
-│   ├── main.css           # Estilos globales (responsive)
-│   ├── producto.css       # Página de producto
-│   ├── carrito.css        # Carrito
-│   ├── checkout.css       # Checkout
-│   ├── auth.css           # Autenticación
-│   └── categorias.css     # Categorías
+│   ├── main.css              # Estilos globales + Modo oscuro
+│   ├── busqueda.css          # Búsqueda y filtros
+│   ├── favoritos.css         # Página de favoritos
+│   ├── producto.css          # Detalle de producto
+│   ├── perfil.css            # Panel de usuario
+│   ├── seguimiento.css       # Seguimiento de pedidos
+│   ├── carrito.css           # Carrito
+│   ├── checkout.css          # Checkout
+│   └── auth.css              # Autenticación
 └── scripts/
-    ├── utils.js           # Utilidades globales
-    ├── main.js            # Homepage + menú móvil
-    ├── producto.js        # Detalle de producto
-    ├── carrito.js         # Gestión del carrito
-    ├── checkout.js        # Procesamiento de pago
-    ├── auth.js            # Login/Registro
-    └── categorias.js      # Filtrado por categorías
+    ├── main.js               # Lógica principal
+    ├── utils.js              # Utilidades globales (Cart, Toast)
+    ├── theme.js              # Modo oscuro/claro
+    ├── favoritos.js          # Sistema de favoritos
+    ├── favoritos-page.js     # Página de favoritos
+    ├── busqueda.js           # Búsqueda con autocompletado
+    ├── producto-detalle.js   # Detalle de producto
+    ├── perfil.js             # Panel de usuario
+    ├── seguimiento.js        # Seguimiento de pedidos
+    └── performance.js        # Optimizaciones de rendimiento
 ```
 
 ---
@@ -68,7 +113,7 @@ TuTienda360/
 2. Haz doble click en index.html
 ```
 
-### Opción 2: Servidor local
+### Opción 2: Servidor local (Recomendado para PWA)
 ```bash
 # Python
 python -m http.server 8000
@@ -84,15 +129,20 @@ Luego abre: `http://localhost:8000`
 
 ---
 
-## 📱 Responsive Breakpoints
+## 📱 Páginas Disponibles
 
-| Dispositivo | Ancho | Columnas |
-|-------------|-------|----------|
-| Mobile XS | < 480px | 1-2 |
-| Mobile LG | 480px - 768px | 2 |
-| Tablet | 768px - 992px | 3-4 |
-| Desktop | 992px - 1200px | 4-6 |
-| Desktop XL | > 1200px | 6 |
+| Página | URL | Descripción |
+|--------|-----|-------------|
+| Home | `index.html` | Página principal con productos destacados |
+| Búsqueda | `busqueda.html?q=` | Búsqueda con autocompletado y filtros |
+| Favoritos | `favoritos.html` | Productos favoritos guardados |
+| Producto | `producto-detalle.html?id=` | Detalle de producto con galería y reseñas |
+| Perfil | `perfil.html` | Panel de usuario con historial de pedidos |
+| Seguimiento | `seguimiento.html?id=` | Tracking de pedido en tiempo real |
+| Carrito | `carrito.html` | Gestión de productos en el carrito |
+| Checkout | `checkout.html` | Finalizar compra con pasos visuales |
+| Login | `login.html` | Inicio de sesión y registro |
+| Categorías | `categorias.html` | Filtrado por categorías |
 
 ---
 
@@ -106,6 +156,7 @@ Luego abre: `http://localhost:8000`
 ### Paleta de Colores
 ```css
 --color-primary: #0061FF;
+--color-primary-dark: #004ED4;
 --color-secondary: #00C7FC;
 --color-accent: #FFD500;
 --color-success: #00C853;
@@ -121,60 +172,12 @@ Luego abre: `http://localhost:8000`
 ## 🛠️ Tecnologías
 
 - **HTML5** - Estructura semántica
-- **CSS3** - Variables, Grid, Flexbox
-- **JavaScript ES6+** - Vanilla JS
-- **Google Fonts** - Inter
-- **Phosphor Icons** - Iconos
-- **Unsplash** - Imágenes
-
----
-
-## 📦 Funcionalidades por Página
-
-### Homepage (`index.html`)
-- Banner promocional
-- 12 categorías principales
-- Ofertas del día (6 productos)
-- Productos destacados (4 productos)
-- Beneficios
-- Búsqueda funcional
-
-### Categorías (`categorias.html`)
-- Filtrado por categoría (URL param)
-- Filtros laterales (precio, condición, envío)
-- Ordenamiento (precio, relevancia)
-- Paginación
-- 8 categorías con productos específicos
-
-### Producto (`producto.html`)
-- Galería de imágenes
-- Selector de variantes
-- Reseñas y calificaciones
-- Preguntas y respuestas
-- Productos relacionados
-
-### Carrito (`carrito.html`)
-- Gestión de cantidades
-- Eliminación de productos
-- Cupones de descuento
-- Cálculo de envío
-- Resumen del pedido
-
-### Checkout (`checkout.html`)
-- Datos de contacto
-- Dirección de envío
-- Métodos de pago:
-  - Tarjeta
-  - Yape
-  - Plin
-  - Transferencia
-- Confirmación de pedido
-
-### Login (`login.html`)
-- Inicio de sesión
-- Registro de usuario
-- Validación de formularios
-- Login social simulado
+- **CSS3** - Variables CSS, Grid, Flexbox, Animaciones
+- **JavaScript ES6+** - Vanilla JS sin frameworks
+- **Google Fonts** - Tipografía Inter
+- **Phosphor Icons** - Iconografía moderna
+- **Unsplash** - Imágenes de productos
+- **localStorage** - Persistencia de datos
 
 ---
 
@@ -186,9 +189,10 @@ El proyecto usa `localStorage` para:
 |-----|-------|
 | `tutienda360_cart` | Carrito de compras |
 | `tutienda360_user` | Usuario logueado |
-| `tutienda360_users` | Usuarios registrados |
-| `tutienda360_order` | Pedido en proceso |
+| `tutienda360_users` | Lista de usuarios |
 | `tutienda360_orders` | Historial de pedidos |
+| `tutienda360_favorites` | Productos favoritos |
+| `tutienda360_theme` | Preferencia de tema (oscuro/claro) |
 
 ---
 
@@ -203,7 +207,16 @@ Cart.getTotalPrice()
 Cart.updateCount()
 ```
 
-### Notificaciones
+### Favoritos
+```javascript
+Favorites.add({ id, name, price, image })
+Favorites.get()
+Favorites.remove(productId)
+Favorites.isFavorite(productId)
+Favorites.toggle(product)
+```
+
+### Notificaciones Toast
 ```javascript
 Toast.success('Mensaje')
 Toast.error('Mensaje')
@@ -221,57 +234,39 @@ toggleMobileMenu()
 
 ---
 
-## 🎯 Flujo de Compra
+## 📊 Métricas de Rendimiento
 
-```
-1. Explorar productos (home/categorías)
-   ↓
-2. Ver detalle de producto
-   ↓
-3. Agregar al carrito
-   ↓
-4. Ver carrito → Revisar productos
-   ↓
-5. Checkout → Datos de envío y pago
-   ↓
-6. Confirmación → Número de pedido
-```
+- **Sin dependencias externas** (excepto fuentes e iconos)
+- **Carga rápida** - Solo CSS y JS esencial
+- **Responsive** - Funciona en todos los dispositivos
+- **Accesible** - Atributos ARIA y semántica HTML
+- **PWA Ready** - Instalable y con cache estratégico
 
 ---
 
-## 📊 Mejoras Implementadas
+## 🚀 Roadmap
 
-### Responsive
-- ✅ Mobile first approach
-- ✅ Menú hamburguesa funcional
-- ✅ Grid adaptable (1-6 columnas)
-- ✅ Imágenes con lazy loading
-- ✅ Touch-friendly (botones grandes)
+### ✅ Completado (v2.0)
+- [x] Modo oscuro/claro
+- [x] Sistema de favoritos
+- [x] Búsqueda con autocompletado
+- [x] Filtros avanzados
+- [x] Página de producto detallada
+- [x] Panel de usuario con historial
+- [x] Seguimiento de pedidos
+- [x] PWA con Service Worker
+- [x] Optimizaciones de rendimiento
+- [x] 50+ productos en base de datos
 
-### Categorías
-- ✅ 8 categorías con productos reales
-- ✅ URLs con parámetros (`?cat=ropa`)
-- ✅ Íconos específicos por categoría
-- ✅ Filtros y ordenamiento
-
-### Imágenes
-- ✅ Unsplash source URLs
-- ✅ Lazy loading
-- ✅ Tamaños optimizados (400x400)
-- ✅ Alt text descriptivo
-
----
-
-## 🚀 Próximas Mejoras
-
-- [ ] Backend con Node.js
-- [ ] Base de datos real
+### 🔄 Próximamente
+- [ ] Backend con Node.js/Express
+- [ ] Base de datos real (MongoDB/PostgreSQL)
 - [ ] API REST
 - [ ] Panel de administración
-- [ ] Búsqueda con Elasticsearch
-- [ ] PWA (Progressive Web App)
-- [ ] Modo oscuro
+- [ ] Pasarela de pagos real
 - [ ] Multi-idioma
+- [ ] Chat con vendedores
+- [ ] Notificaciones push
 
 ---
 
@@ -281,17 +276,35 @@ Proyecto educativo. Libre uso para aprendizaje y demos.
 
 ---
 
-## 👨‍ Autor
+## 👨💻 Autor
 
 **TuTienda360** - Tu marketplace de confianza
 
-© 2026 - Hecho con ❤️
+© 2026 - Hecho con ❤️ para emprendedores
 
 ---
 
 ## 🔗 Enlaces
 
-- [Homepage](index.html)
-- [Categorías](categorias.html)
-- [Carrito](carrito.html)
-- [Login](login.html)
+- [Repositorio GitHub](https://github.com/profastpage/tutienda360)
+- [Demo en Vivo](#)
+- [Documentación](#)
+
+---
+
+## 📱 Capturas
+
+### Mobile
+- Header compacto con búsqueda
+- Navegación solo vertical
+- Scroll horizontal solo en imágenes/thumbnails
+
+### Desktop
+- Header completo con navegación
+- Grid de productos responsive (2-6 columnas)
+- Panel de filtros deslizable
+
+---
+
+**Última actualización:** Marzo 2026
+**Versión:** 2.0.0
