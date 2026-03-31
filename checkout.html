@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Compra - TuTienda360</title>
+    <meta name="description" content="Completa tu compra de forma segura">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/checkout.css">
+</head>
+<body>
+    <!-- Header Simplificado -->
+    <header class="checkout-header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">TuTienda<span class="logo-highlight">360</span></span>
+            </a>
+            <div class="checkout-progress">
+                <div class="progress-step active">
+                    <i class="ph ph-shopping-bag"></i>
+                    <span>Carrito</span>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step active">
+                    <i class="ph ph-credit-card"></i>
+                    <span>Pago</span>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step">
+                    <i class="ph ph-check-circle"></i>
+                    <span>Confirmación</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="checkout-main">
+        <div class="container">
+            <form class="checkout-grid" id="checkoutForm" onsubmit="handleCheckout(event)">
+                <!-- Columna Izquierda - Formularios -->
+                <div class="checkout-forms">
+                    <!-- Datos de Contacto -->
+                    <section class="checkout-section">
+                        <h2 class="section-title">
+                            <i class="ph ph-user"></i>
+                            Datos de contacto
+                        </h2>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contactEmail" class="form-label">Correo electrónico *</label>
+                                <input type="email" id="contactEmail" class="form-input" required placeholder="tu@email.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="contactPhone" class="form-label">Teléfono *</label>
+                                <input type="tel" id="contactPhone" class="form-input" required placeholder="999 999 999" pattern="[0-9]{9}">
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Datos de Envío -->
+                    <section class="checkout-section">
+                        <h2 class="section-title">
+                            <i class="ph ph-map-pin"></i>
+                            Dirección de envío
+                        </h2>
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label for="shippingAddress" class="form-label">Dirección completa *</label>
+                                <input type="text" id="shippingAddress" class="form-input" required placeholder="Av. Principal 123, Depto 456">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="shippingRegion" class="form-label">Departamento *</label>
+                                <select id="shippingRegion" class="form-input" required>
+                                    <option value="">Seleccionar</option>
+                                    <option value="LMA">Lima</option>
+                                    <option value="ARE">Arequipa</option>
+                                    <option value="LAL">La Libertad</option>
+                                    <option value="LAM">Lambayeque</option>
+                                    <option value="PIU">Piura</option>
+                                    <option value="CUS">Cusco</option>
+                                    <option value="JUN">Junín</option>
+                                    <option value="OTHER">Otro</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="shippingProvince" class="form-label">Provincia *</label>
+                                <input type="text" id="shippingProvince" class="form-input" required placeholder="Ej: Lima">
+                            </div>
+                            <div class="form-group">
+                                <label for="shippingDistrict" class="form-label">Distrito *</label>
+                                <input type="text" id="shippingDistrict" class="form-input" required placeholder="Ej: Miraflores">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="shippingReference" class="form-label">Referencia (opcional)</label>
+                                <input type="text" id="shippingReference" class="form-input" placeholder="Cerca a...">
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Método de Pago -->
+                    <section class="checkout-section">
+                        <h2 class="section-title">
+                            <i class="ph ph-credit-card"></i>
+                            Método de pago
+                        </h2>
+                        
+                        <div class="payment-methods-list">
+                            <!-- Tarjeta de Crédito/Débito -->
+                            <label class="payment-method-option active">
+                                <input type="radio" name="paymentMethod" value="card" checked onchange="togglePaymentMethod('card')">
+                                <div class="payment-method-content">
+                                    <div class="payment-method-header">
+                                        <i class="ph ph-credit-card"></i>
+                                        <span>Tarjeta de Crédito/Débito</span>
+                                    </div>
+                                    <div class="payment-method-icons">
+                                        <i class="ph ph-credit-card"></i>
+                                        <i class="ph ph-bank"></i>
+                                    </div>
+                                </div>
+                            </label>
+                            
+                            <!-- Yape -->
+                            <label class="payment-method-option">
+                                <input type="radio" name="paymentMethod" value="yape" onchange="togglePaymentMethod('yape')">
+                                <div class="payment-method-content">
+                                    <div class="payment-method-header">
+                                        <i class="ph ph-qr-code"></i>
+                                        <span>Yape</span>
+                                    </div>
+                                </div>
+                            </label>
+                            
+                            <!-- Plin -->
+                            <label class="payment-method-option">
+                                <input type="radio" name="paymentMethod" value="plin" onchange="togglePaymentMethod('plin')">
+                                <div class="payment-method-content">
+                                    <div class="payment-method-header">
+                                        <i class="ph ph-qr-code"></i>
+                                        <span>Plin</span>
+                                    </div>
+                                </div>
+                            </label>
+                            
+                            <!-- Transferencia -->
+                            <label class="payment-method-option">
+                                <input type="radio" name="paymentMethod" value="transfer" onchange="togglePaymentMethod('transfer')">
+                                <div class="payment-method-content">
+                                    <div class="payment-method-header">
+                                        <i class="ph ph-bank"></i>
+                                        <span>Transferencia BCP</span>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                        
+                        <!-- Formulario de Tarjeta -->
+                        <div class="card-form" id="cardForm">
+                            <div class="form-group">
+                                <label for="cardNumber" class="form-label">Número de tarjeta</label>
+                                <div class="input-with-icon">
+                                    <i class="ph ph-credit-card"></i>
+                                    <input type="text" id="cardNumber" class="form-input" placeholder="1234 5678 9012 3456" maxlength="19">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="cardName" class="form-label">Nombre del titular</label>
+                                <input type="text" id="cardName" class="form-input" placeholder="Como aparece en la tarjeta">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="cardExpiry" class="form-label">Vencimiento</label>
+                                    <input type="text" id="cardExpiry" class="form-input" placeholder="MM/AA" maxlength="5">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cardCVV" class="form-label">CVV</label>
+                                    <div class="input-with-icon">
+                                        <input type="text" id="cardCVV" class="form-input" placeholder="123" maxlength="4">
+                                        <i class="ph ph-question" title="Código de 3 dígitos al reverso"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-installments">
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" id="installmentsCheck">
+                                    <span>Pagar en 3 cuotas sin interés</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Yape/Plin -->
+                        <div class="qr-payment" id="qrPayment" style="display: none;">
+                            <div class="qr-content">
+                                <div class="qr-placeholder">
+                                    <i class="ph ph-qr-code"></i>
+                                    <p>Escanea el código QR con tu app</p>
+                                </div>
+                                <p class="qr-instruction">Te mostraremos el código QR después de confirmar el pedido</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Transferencia -->
+                        <div class="transfer-payment" id="transferPayment" style="display: none;">
+                            <div class="transfer-content">
+                                <p><strong>BCP - Cuenta Corriente</strong></p>
+                                <p>N°: 191-12345678-0-01</p>
+                                <p>CCI: 002-191-123456780001-45</p>
+                                <p class="transfer-note">Envía tu comprobante al WhatsApp: 999 999 999</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Columna Derecha - Resumen -->
+                <div class="checkout-summary">
+                    <div class="summary-card">
+                        <h3 class="summary-title">Resumen del pedido</h3>
+                        
+                        <div class="summary-products" id="summaryProducts">
+                            <!-- Se llena dinámicamente -->
+                        </div>
+                        
+                        <div class="summary-divider"></div>
+                        
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span id="summarySubtotal">S/ 0</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Envío</span>
+                            <span class="free-shipping" id="summaryShipping">Gratis</span>
+                        </div>
+                        <div class="summary-row discount-row" id="summaryDiscountRow" style="display: none;">
+                            <span>Descuento</span>
+                            <span class="discount-amount" id="summaryDiscount">-S/ 0</span>
+                        </div>
+                        
+                        <div class="summary-divider"></div>
+                        
+                        <div class="summary-row total-row">
+                            <span>Total a pagar</span>
+                            <span class="total-amount" id="summaryTotal">S/ 0</span>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-checkout-submit">
+                            <i class="ph ph-lock-key"></i>
+                            Confirmar pedido
+                        </button>
+                        
+                        <p class="checkout-secure">
+                            <i class="ph ph-shield-check"></i>
+                            Pago 100% seguro y encriptado
+                        </p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Modal de Confirmación -->
+    <div class="modal-overlay" id="confirmModal" style="display: none;">
+        <div class="modal-confirm">
+            <div class="confirm-icon">
+                <i class="ph ph-check"></i>
+            </div>
+            <h2>¡Pedido confirmado!</h2>
+            <p>Tu número de pedido es: <strong id="orderNumber">#000000</strong></p>
+            <p class="confirm-message">Te hemos enviado un correo con todos los detalles.</p>
+            <div class="confirm-actions">
+                <a href="index.html" class="btn btn-primary">Seguir comprando</a>
+                <a href="#" class="btn btn-outline">Ver mi pedido</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/checkout.js"></script>
+</body>
+</html>

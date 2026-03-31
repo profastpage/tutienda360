@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras - TuTienda360</title>
+    <meta name="description" content="Revisa tu carrito de compras en TuTienda360">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/carrito.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">TuTienda<span class="logo-highlight">360</span></span>
+            </a>
+            
+            <div class="search-bar">
+                <form class="search-form" id="searchForm">
+                    <input type="text" class="search-input" placeholder="Buscar productos, marcas y más..." id="searchInput">
+                    <button type="submit" class="search-button" aria-label="Buscar">
+                        <i class="ph ph-magnifying-glass"></i>
+                    </button>
+                </form>
+            </div>
+            
+            <nav class="main-nav">
+                <a href="login.html" class="nav-link" id="navAccount">
+                    <i class="ph ph-user"></i>
+                    <span>Mi Cuenta</span>
+                </a>
+                <a href="#" class="nav-link">
+                    <i class="ph ph-heart"></i>
+                    <span>Favoritos</span>
+                </a>
+                <a href="carrito.html" class="nav-link cart-link">
+                    <i class="ph ph-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="cart-main">
+        <div class="container">
+            <h1 class="page-title">Tu Carrito de Compras</h1>
+            
+            <div class="cart-grid">
+                <!-- Lista de Productos -->
+                <div class="cart-items-section">
+                    <div class="cart-items" id="cartItems">
+                        <!-- Se llena dinámicamente con JavaScript -->
+                    </div>
+                    
+                    <!-- Carrito Vacío -->
+                    <div class="cart-empty" id="cartEmpty" style="display: none;">
+                        <i class="ph ph-shopping-cart"></i>
+                        <h2>Tu carrito está vacío</h2>
+                        <p>Explora nuestros productos y agrega lo que te guste</p>
+                        <a href="index.html" class="btn btn-primary btn-large">
+                            <i class="ph ph-storefront"></i>
+                            Ir a comprar
+                        </a>
+                    </div>
+                    
+                    <!-- Continuar Comprando -->
+                    <div class="continue-shopping">
+                        <a href="index.html" class="link-primary">
+                            <i class="ph ph-arrow-left"></i>
+                            Seguir comprando
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Resumen del Pedido -->
+                <div class="cart-summary-section">
+                    <div class="cart-summary">
+                        <h3 class="summary-title">Resumen del pedido</h3>
+                        
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span id="subtotalAmount">S/ 0</span>
+                        </div>
+                        
+                        <div class="summary-row">
+                            <span>Envío</span>
+                            <span class="free-shipping" id="shippingAmount">Gratis</span>
+                        </div>
+                        
+                        <div class="summary-row discount-row" id="discountRow" style="display: none;">
+                            <span>Descuento</span>
+                            <span class="discount-amount" id="discountAmount">-S/ 0</span>
+                        </div>
+                        
+                        <div class="summary-divider"></div>
+                        
+                        <div class="summary-row total-row">
+                            <span>Total</span>
+                            <span class="total-amount" id="totalAmount">S/ 0</span>
+                        </div>
+                        
+                        <div class="shipping-notice">
+                            <i class="ph ph-truck"></i>
+                            <span>Envío gratis en pedidos mayores a S/ 199</span>
+                        </div>
+                        
+                        <button class="btn btn-primary btn-checkout" onclick="proceedToCheckout()">
+                            Proceder al pago
+                        </button>
+                        
+                        <div class="payment-methods">
+                            <span class="payment-label">Métodos de pago aceptados:</span>
+                            <div class="payment-icons">
+                                <i class="ph ph-credit-card"></i>
+                                <i class="ph ph-bank"></i>
+                                <i class="ph ph-wallet"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="trust-badges">
+                            <div class="badge-item">
+                                <i class="ph ph-shield-check"></i>
+                                <span>Compra segura</span>
+                            </div>
+                            <div class="badge-item">
+                                <i class="ph ph-arrow-counter-clockwise"></i>
+                                <span>Devolución gratis</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4 class="footer-title">Sobre TuTienda360</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Quiénes somos</a></li>
+                        <li><a href="#">Trabaja con nosotros</a></li>
+                        <li><a href="#">Prensa</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Ayuda</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Centro de ayuda</a></li>
+                        <li><a href="#">Cómo comprar</a></li>
+                        <li><a href="#">Envíos</a></li>
+                        <li><a href="#">Devoluciones</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Contacto</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Atención al cliente</a></li>
+                        <li><a href="#">Chat en vivo</a></li>
+                        <li><a href="#">Teléfono: 0800-123-456</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Síguenos</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="ph ph-facebook-logo"></i></a>
+                        <a href="#" class="social-link"><i class="ph ph-instagram-logo"></i></a>
+                        <a href="#" class="social-link"><i class="ph ph-twitter-logo"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">© 2026 TuTienda360 Perú. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de Cupón -->
+    <div class="modal-overlay" id="couponModal" style="display: none;">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Canjear cupón de descuento</h3>
+                <button class="modal-close" onclick="closeCouponModal()">
+                    <i class="ph ph-x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="coupon-input-group">
+                    <input type="text" class="coupon-input" id="couponCode" placeholder="Ingresa tu código">
+                    <button class="btn btn-primary" onclick="applyCoupon()">Aplicar</button>
+                </div>
+                <p class="coupon-help">¿No tienes un cupón? <a href="#">Suscríbete y recibe uno</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/carrito.js"></script>
+</body>
+</html>

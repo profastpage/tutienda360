@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smartphone Samsung Galaxy A54 5G - TuTienda360</title>
+    <meta name="description" content="Compra Smartphone Samsung Galaxy A54 5G 128GB al mejor precio. Envío gratis y compra protegida.">
+    
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Iconos - Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/producto.css">
+</head>
+<body>
+    <!-- Header / Navegación -->
+    <header class="header">
+        <div class="container header-container">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <span class="logo-text">TuTienda<span class="logo-highlight">360</span></span>
+            </a>
+            
+            <!-- Buscador -->
+            <div class="search-bar">
+                <form class="search-form" id="searchForm">
+                    <input 
+                        type="text" 
+                        class="search-input" 
+                        placeholder="Buscar productos, marcas y más..."
+                        aria-label="Buscar productos"
+                        id="searchInput"
+                    >
+                    <button type="submit" class="search-button" aria-label="Buscar">
+                        <i class="ph ph-magnifying-glass"></i>
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Navegación principal -->
+            <nav class="main-nav">
+                <a href="login.html" class="nav-link" id="navAccount">
+                    <i class="ph ph-user"></i>
+                    <span>Mi Cuenta</span>
+                </a>
+                <a href="#" class="nav-link">
+                    <i class="ph ph-heart"></i>
+                    <span>Favoritos</span>
+                </a>
+                <a href="carrito.html" class="nav-link cart-link">
+                    <i class="ph ph-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-section">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html">Inicio</a>
+                <i class="ph ph-caret-right"></i>
+                <a href="categorias.html">Celulares</a>
+                <i class="ph ph-caret-right"></i>
+                <a href="#">Samsung</a>
+                <i class="ph ph-caret-right"></i>
+                <span class="current">Galaxy A54 5G</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Contenido Principal del Producto -->
+    <main class="product-main">
+        <div class="container">
+            <div class="product-grid">
+                <!-- Galería de Imágenes -->
+                <div class="product-gallery">
+                    <div class="main-image">
+                        <img src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=800&h=800&fit=crop" alt="Samsung Galaxy A54" id="mainImage">
+                        <span class="discount-badge">-25%</span>
+                    </div>
+                    <div class="thumbnail-list">
+                        <button class="thumbnail active" onclick="changeImage(this, 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=800&h=800&fit=crop')">
+                            <img src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=150&h=150&fit=crop" alt="Vista 1">
+                        </button>
+                        <button class="thumbnail" onclick="changeImage(this, 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&h=800&fit=crop')">
+                            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=150&h=150&fit=crop" alt="Vista 2">
+                        </button>
+                        <button class="thumbnail" onclick="changeImage(this, 'https://images.unsplash.com/photo-1592899677712-a5a25450336c?w=800&h=800&fit=crop')">
+                            <img src="https://images.unsplash.com/photo-1592899677712-a5a25450336c?w=150&h=150&fit=crop" alt="Vista 3">
+                        </button>
+                        <button class="thumbnail" onclick="changeImage(this, 'https://images.unsplash.com/photo-1598327105666-5b89351aff23?w=800&h=800&fit=crop')">
+                            <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff23?w=150&h=150&fit=crop" alt="Vista 4">
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Información del Producto -->
+                <div class="product-info-section">
+                    <div class="product-header">
+                        <h1 class="product-title">Smartphone Samsung Galaxy A54 5G 128GB Negro</h1>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="ph ph-star-fill"></i>
+                                <i class="ph ph-star-fill"></i>
+                                <i class="ph ph-star-fill"></i>
+                                <i class="ph ph-star-fill"></i>
+                                <i class="ph ph-star-half-fill"></i>
+                            </div>
+                            <span class="rating-count">(4.7) 234 opiniones</span>
+                        </div>
+                    </div>
+
+                    <div class="product-pricing">
+                        <div class="price-container">
+                            <span class="old-price">S/ 1,299</span>
+                            <span class="current-price-large">S/ 974</span>
+                        </div>
+                        <div class="installments">
+                            <span class="installment-label">o paga en 3 cuotas sin interés de</span>
+                            <span class="installment-price">S/ 324.67</span>
+                        </div>
+                    </div>
+
+                    <div class="product-benefits">
+                        <div class="benefit-item">
+                            <i class="ph ph-truck"></i>
+                            <div>
+                                <strong>Envío gratis</strong>
+                                <span>Recibe mañana, 31 de marzo</span>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="ph ph-shield-check"></i>
+                            <div>
+                                <strong>Compra protegida</strong>
+                                <span>Garantía de 30 días</span>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="ph ph-arrow-counter-clockwise"></i>
+                            <div>
+                                <strong>Devolución gratis</strong>
+                                <span>Primeros 30 días</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-options">
+                        <div class="option-group">
+                            <label class="option-label">Color</label>
+                            <div class="color-options">
+                                <button class="color-option active" data-color="negro" title="Negro">
+                                    <span class="color-swatch" style="background: #1a1a1a;"></span>
+                                </button>
+                                <button class="color-option" data-color="blanco" title="Blanco">
+                                    <span class="color-swatch" style="background: #f5f5f5;"></span>
+                                </button>
+                                <button class="color-option" data-color="verde" title="Verde">
+                                    <span class="color-swatch" style="background: #4a7c59;"></span>
+                                </button>
+                                <button class="color-option" data-color="violeta" title="Violeta">
+                                    <span class="color-swatch" style="background: #9b7ebd;"></span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="option-group">
+                            <label class="option-label">Almacenamiento</label>
+                            <div class="storage-options">
+                                <button class="storage-option" data-storage="128GB">128GB</button>
+                                <button class="storage-option active" data-storage="256GB">256GB</button>
+                            </div>
+                        </div>
+
+                        <div class="option-group">
+                            <label class="option-label">Cantidad</label>
+                            <div class="quantity-selector">
+                                <button class="quantity-btn" onclick="decreaseQuantity()">-</button>
+                                <input type="number" class="quantity-input" value="1" min="1" max="10" id="quantityInput">
+                                <button class="quantity-btn" onclick="increaseQuantity()">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-actions">
+                        <button class="btn btn-primary btn-large" onclick="addToCartFromProduct()">
+                            <i class="ph ph-shopping-cart"></i>
+                            Agregar al carrito
+                        </button>
+                        <button class="btn btn-secondary btn-large">
+                            <i class="ph ph-heart"></i>
+                            Favoritos
+                        </button>
+                    </div>
+
+                    <div class="seller-info">
+                        <div class="seller-header">
+                            <strong>Vendido por</strong>
+                            <a href="#" class="seller-name">Samsung Store Oficial</a>
+                            <span class="seller-badge">
+                                <i class="ph ph-check-circle"></i> Oficial
+                            </span>
+                        </div>
+                        <div class="seller-stats">
+                            <span><i class="ph ph-thumbs-up"></i> 98% positivos</span>
+                            <span><i class="ph ph-chat-circle"></i> 1,234 ventas</span>
+                        </div>
+                        <button class="btn btn-outline btn-small">Contactar vendedor</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Descripción del Producto -->
+            <section class="product-details-section">
+                <div class="tabs-container">
+                    <div class="tabs-header">
+                        <button class="tab-btn active" data-tab="descripcion">Descripción</button>
+                        <button class="tab-btn" data-tab="especificaciones">Especificaciones</button>
+                        <button class="tab-btn" data-tab="opiniones">Opiniones (234)</button>
+                        <button class="tab-btn" data-tab="preguntas">Preguntas y respuestas</button>
+                    </div>
+
+                    <div class="tabs-content">
+                        <!-- Descripción -->
+                        <div class="tab-panel active" id="descripcion">
+                            <h3>Descripción del producto</h3>
+                            <p>El Samsung Galaxy A54 5G es un smartphone de gama media-alta que ofrece un rendimiento excepcional con su procesador Exynos 1380. Cuenta con una pantalla Super AMOLED de 6.4 pulgadas con tasa de refresco de 120Hz para una experiencia visual fluida.</p>
+                            
+                            <h4>Características principales:</h4>
+                            <ul class="feature-list">
+                                <li><i class="ph ph-check"></i> Pantalla Super AMOLED 6.4" FHD+ 120Hz</li>
+                                <li><i class="ph ph-check"></i> Procesador Exynos 1380 Octa-Core</li>
+                                <li><i class="ph ph-check"></i> Cámara triple: 50MP + 12MP + 5MP</li>
+                                <li><i class="ph ph-check"></i> Cámara frontal: 32MP</li>
+                                <li><i class="ph ph-check"></i> Batería 5000mAh con carga rápida 25W</li>
+                                <li><i class="ph ph-check"></i> Conectividad 5G</li>
+                                <li><i class="ph ph-check"></i> Resistencia al agua IP67</li>
+                                <li><i class="ph ph-check"></i> Android 13 con One UI 5.1</li>
+                            </ul>
+
+                            <div class="product-highlights">
+                                <div class="highlight-card">
+                                    <i class="ph ph-camera"></i>
+                                    <h4>Cámara Profesional</h4>
+                                    <p>Captura momentos increíbles con la cámara de 50MP con OIS</p>
+                                </div>
+                                <div class="highlight-card">
+                                    <i class="ph ph-battery-charging"></i>
+                                    <h4>Batería Todo el Día</h4>
+                                    <p>5000mAh para que no te quedes sin energía</p>
+                                </div>
+                                <div class="highlight-card">
+                                    <i class="ph ph-drop"></i>
+                                    <h4>Resistente al Agua</h4>
+                                    <p>Certificación IP67 para mayor durabilidad</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Especificaciones -->
+                        <div class="tab-panel" id="especificaciones">
+                            <h3>Especificaciones técnicas</h3>
+                            <table class="specs-table">
+                                <tr>
+                                    <td class="spec-label">Marca</td>
+                                    <td class="spec-value">Samsung</td>
+                                </tr>
+                                <tr>
+                                    <td class="spec-label">Modelo</td>
+                                    <td class="spec-value">Galaxy A54 5G</td>
+                                </tr>
+                                <tr>
+                                    <td class="spec-label">Pantalla</td>
+                                    <td class="spec-value">6.4" Super AMOLED FHD+ 120Hz</td>
+                                </tr>
+                                <tr>
+                                    <td class="spec-label">Procesador</td>
+                                    <td class="spec-value">Exynos 1380 Octa-Core</td>
+                                </tr>
+                                <tr>
+                                    <td class="spec-label">RAM</td>
+                                    <td class="spec-value">8GB</td>
+                                </tr>
+                                <tr>
+                                    <td class="spec-label">Almacenamiento</td>
+                                    <td class="spec-value">128GB / 256GB (expandible)</td>
+                                </tr>
+                                <tr>
+                                    <td class="spec-label">Cámara Trasera</td>
+                                    <td class="spec-value">50MP + 12MP + 5MP</td>
+                                </tr>
+                                <tr>
+                                    <td class="spec-label">Cámara Frontal</td>
+                                    <td class="spec-value">32MP</td>
+                                </tr>
+                                <tr>
+                                    <td class="spec-label">Batería</td>
+                                    <td class="spec-value">5000mAh</td>
+                                </tr>
+                                <tr>
+                                    <td class="spec-label">Sistema Operativo</td>
+                                    <td class="spec-value">Android 13, One UI 5.1</td>
+                                </tr>
+                                <tr>
+                                    <td class="spec-label">Conectividad</td>
+                                    <td class="spec-value">5G, 4G LTE, WiFi 6, Bluetooth 5.3</td>
+                                </tr>
+                                <tr>
+                                    <td class="spec-label">Resistencia</td>
+                                    <td class="spec-value">IP67 (agua y polvo)</td>
+                                </tr>
+                                <tr>
+                                    <td class="spec-label">Dimensiones</td>
+                                    <td class="spec-value">158.2 x 76.7 x 8.2 mm</td>
+                                </tr>
+                                <tr>
+                                    <td class="spec-label">Peso</td>
+                                    <td class="spec-value">202g</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <!-- Opiniones -->
+                        <div class="tab-panel" id="opiniones">
+                            <div class="reviews-header">
+                                <div class="reviews-summary">
+                                    <div class="average-rating">
+                                        <span class="rating-number">4.7</span>
+                                        <div class="stars-large">
+                                            <i class="ph ph-star-fill"></i>
+                                            <i class="ph ph-star-fill"></i>
+                                            <i class="ph ph-star-fill"></i>
+                                            <i class="ph ph-star-fill"></i>
+                                            <i class="ph ph-star-half-fill"></i>
+                                        </div>
+                                        <span class="total-reviews">234 opiniones</span>
+                                    </div>
+                                    <div class="rating-bars">
+                                        <div class="rating-bar">
+                                            <span>5</span>
+                                            <div class="bar"><div class="fill" style="width: 70%;"></div></div>
+                                            <span>164</span>
+                                        </div>
+                                        <div class="rating-bar">
+                                            <span>4</span>
+                                            <div class="bar"><div class="fill" style="width: 20%;"></div></div>
+                                            <span>47</span>
+                                        </div>
+                                        <div class="rating-bar">
+                                            <span>3</span>
+                                            <div class="bar"><div class="fill" style="width: 6%;"></div></div>
+                                            <span>14</span>
+                                        </div>
+                                        <div class="rating-bar">
+                                            <span>2</span>
+                                            <div class="bar"><div class="fill" style="width: 2%;"></div></div>
+                                            <span>5</span>
+                                        </div>
+                                        <div class="rating-bar">
+                                            <span>1</span>
+                                            <div class="bar"><div class="fill" style="width: 2%;"></div></div>
+                                            <span>4</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary">Escribir opinión</button>
+                            </div>
+
+                            <div class="reviews-list">
+                                <!-- Review 1 -->
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <div class="reviewer-info">
+                                            <div class="reviewer-avatar">JC</div>
+                                            <div>
+                                                <strong class="reviewer-name">Juan Carlos M.</strong>
+                                                <div class="review-date">15 de marzo, 2026</div>
+                                            </div>
+                                        </div>
+                                        <div class="review-rating">
+                                            <i class="ph ph-star-fill"></i>
+                                            <i class="ph ph-star-fill"></i>
+                                            <i class="ph ph-star-fill"></i>
+                                            <i class="ph ph-star-fill"></i>
+                                            <i class="ph ph-star-fill"></i>
+                                        </div>
+                                    </div>
+                                    <h4 class="review-title">¡Excelente celular!</h4>
+                                    <p class="review-text">Llevo 2 semanas con el Galaxy A54 y estoy muy conforme. La cámara es increíble, la batería dura todo el día y la pantalla se ve espectacular. El envío fue rápido y llegó bien protegido. 100% recomendado.</p>
+                                    <div class="review-helpful">
+                                        <span>¿Te fue útil esta opinión?</span>
+                                        <button class="helpful-btn"><i class="ph ph-thumbs-up"></i> Sí (24)</button>
+                                        <button class="helpful-btn"><i class="ph ph-thumbs-down"></i> No (2)</button>
+                                    </div>
+                                </div>
+
+                                <!-- Review 2 -->
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <div class="reviewer-info">
+                                            <div class="reviewer-avatar" style="background: #9b7ebd;">MR</div>
+                                            <div>
+                                                <strong class="reviewer-name">María Rodríguez</strong>
+                                                <div class="review-date">10 de marzo, 2026</div>
+                                            </div>
+                                        </div>
+                                        <div class="review-rating">
+                                            <i class="ph ph-star-fill"></i>
+                                            <i class="ph ph-star-fill"></i>
+                                            <i class="ph ph-star-fill"></i>
+                                            <i class="ph ph-star-fill"></i>
+                                            <i class="ph ph-star"></i>
+                                        </div>
+                                    </div>
+                                    <h4 class="review-title">Muy buena relación calidad-precio</h4>
+                                    <p class="review-text">El celular cumple con lo esperado. La cámara es buena, aunque en condiciones de poca luz podría mejorar. La batería es excelente, me dura fácilmente día y medio. El diseño es elegante y se siente premium.</p>
+                                    <div class="review-helpful">
+                                        <span>¿Te fue útil esta opinión?</span>
+                                        <button class="helpful-btn"><i class="ph ph-thumbs-up"></i> Sí (18)</button>
+                                        <button class="helpful-btn"><i class="ph ph-thumbs-down"></i> No (1)</button>
+                                    </div>
+                                </div>
+
+                                <!-- Review 3 -->
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <div class="reviewer-info">
+                                            <div class="reviewer-avatar" style="background: #4a7c59;">DL</div>
+                                            <div>
+                                                <strong class="reviewer-name">David López</strong>
+                                                <div class="review-date">5 de marzo, 2026</div>
+                                            </div>
+                                        </div>
+                                        <div class="review-rating">
+                                            <i class="ph ph-star-fill"></i>
+                                            <i class="ph ph-star-fill"></i>
+                                            <i class="ph ph-star-fill"></i>
+                                            <i class="ph ph-star-fill"></i>
+                                            <i class="ph ph-star-half-fill"></i>
+                                        </div>
+                                    </div>
+                                    <h4 class="review-title">Recomendado</h4>
+                                    <p class="review-text">Vengo de un Galaxy A32 y la diferencia es notable. La pantalla de 120Hz es muy fluida, el rendimiento es bueno para juegos y multitarea. El único pero es que no incluye cargador en la caja.</p>
+                                    <div class="review-helpful">
+                                        <span>¿Te fue útil esta opinión?</span>
+                                        <button class="helpful-btn"><i class="ph ph-thumbs-up"></i> Sí (15)</button>
+                                        <button class="helpful-btn"><i class="ph ph-thumbs-down"></i> No (0)</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-outline btn-large" style="width: 100%; margin-top: 24px;">Ver más opiniones</button>
+                        </div>
+
+                        <!-- Preguntas -->
+                        <div class="tab-panel" id="preguntas">
+                            <div class="questions-header">
+                                <h3>Preguntas y respuestas</h3>
+                                <button class="btn btn-primary">Hacer una pregunta</button>
+                            </div>
+
+                            <div class="questions-list">
+                                <!-- Pregunta 1 -->
+                                <div class="question-card">
+                                    <div class="question">
+                                        <p><strong>Pregunta:</strong> ¿Este modelo es dual SIM?</p>
+                                        <span class="question-date">20 de marzo, 2026</span>
+                                    </div>
+                                    <div class="answer">
+                                        <p><strong class="seller-badge">Vendedor:</strong> Sí, este modelo es dual SIM (nano-SIM + eSIM).</p>
+                                        <span class="answer-date">21 de marzo, 2026</span>
+                                    </div>
+                                </div>
+
+                                <!-- Pregunta 2 -->
+                                <div class="question-card">
+                                    <div class="question">
+                                        <p><strong>Pregunta:</strong> ¿Viene con cargador incluido?</p>
+                                        <span class="question-date">18 de marzo, 2026</span>
+                                    </div>
+                                    <div class="answer">
+                                        <p><strong class="seller-badge">Vendedor:</strong> No, el equipo no incluye cargador. Solo viene con el cable USB-C.</p>
+                                        <span class="answer-date">19 de marzo, 2026</span>
+                                    </div>
+                                </div>
+
+                                <!-- Pregunta 3 -->
+                                <div class="question-card">
+                                    <div class="question">
+                                        <p><strong>Pregunta:</strong> ¿Tiene NFC para pagos?</p>
+                                        <span class="question-date">15 de marzo, 2026</span>
+                                    </div>
+                                    <div class="answer">
+                                        <p><strong class="seller-badge">Vendedor:</strong> Sí, cuenta con NFC para usar Samsung Pay y Google Pay.</p>
+                                        <span class="answer-date">16 de marzo, 2026</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Productos Relacionados -->
+            <section class="related-products">
+                <h2 class="section-title">Productos relacionados</h2>
+                <div class="products-grid">
+                    <!-- Producto relacionado 1 -->
+                    <article class="product-card" onclick="window.location.href='producto.html'">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff23?w=400&h=400&fit=crop" alt="Producto">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Smartphone Samsung Galaxy S23 5G 256GB</h3>
+                            <div class="price-container">
+                                <span class="current-price">S/ 2,899</span>
+                            </div>
+                            <div class="shipping-info">
+                                <i class="ph ph-truck"></i>
+                                <span>Envío gratis</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Producto relacionado 2 -->
+                    <article class="product-card" onclick="window.location.href='producto.html'">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop" alt="Producto">
+                            <span class="discount-badge">-15%</span>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Smartphone Samsung Galaxy A34 5G 128GB</h3>
+                            <div class="price-container">
+                                <span class="old-price">S/ 999</span>
+                                <span class="current-price">S/ 849</span>
+                            </div>
+                            <div class="shipping-info">
+                                <i class="ph ph-truck"></i>
+                                <span>Envío gratis</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Producto relacionado 3 -->
+                    <article class="product-card" onclick="window.location.href='producto.html'">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop" alt="Producto">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Funda Samsung Galaxy A54 Silicona</h3>
+                            <div class="price-container">
+                                <span class="current-price">S/ 49</span>
+                            </div>
+                            <div class="shipping-info">
+                                <i class="ph ph-truck"></i>
+                                <span>Llega mañana</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Producto relacionado 4 -->
+                    <article class="product-card" onclick="window.location.href='producto.html'">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1609599006353-e629aaabfeae?w=400&h=400&fit=crop" alt="Producto">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Cargador Samsung 25W USB-C Original</h3>
+                            <div class="price-container">
+                                <span class="current-price">S/ 79</span>
+                            </div>
+                            <div class="shipping-info">
+                                <i class="ph ph-truck"></i>
+                                <span>Envío gratis</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4 class="footer-title">Sobre TuTienda360</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Quiénes somos</a></li>
+                        <li><a href="#">Trabaja con nosotros</a></li>
+                        <li><a href="#">Prensa</a></li>
+                        <li><a href="#">Inversionistas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Ayuda</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Centro de ayuda</a></li>
+                        <li><a href="#">Cómo comprar</a></li>
+                        <li><a href="#">Cómo vender</a></li>
+                        <li><a href="#">Envíos</a></li>
+                        <li><a href="#">Devoluciones</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Contacto</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Atención al cliente</a></li>
+                        <li><a href="#">Chat en vivo</a></li>
+                        <li><a href="#">Teléfono: 0800-123-456</a></li>
+                        <li><a href="#">Email: ayuda@tutienda360.pe</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Síguenos</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="ph ph-facebook-logo"></i></a>
+                        <a href="#" class="social-link"><i class="ph ph-instagram-logo"></i></a>
+                        <a href="#" class="social-link"><i class="ph ph-twitter-logo"></i></a>
+                        <a href="#" class="social-link"><i class="ph ph-youtube-logo"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p class="copyright">© 2026 TuTienda360 Perú. Todos los derechos reservados.</p>
+                    <div class="footer-legal">
+                        <a href="#">Términos y condiciones</a>
+                        <a href="#">Política de privacidad</a>
+                        <a href="#">Libro de reclamaciones</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/producto.js"></script>
+</body>
+</html>

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>TuTienda360 - Tu marketplace de confianza</title>
+    <meta name="description" content="Encuentra miles de productos a los mejores precios. Envíos rápidos y seguros a todo el país.">
+    <meta name="theme-color" content="#0061FF">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Iconos -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <!-- Menú Hamburguesa -->
+            <button class="mobile-menu-btn" aria-label="Abrir menú" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <span class="logo-text">TuTienda<span class="logo-highlight">360</span></span>
+            </a>
+            
+            <!-- Buscador -->
+            <div class="search-bar">
+                <form class="search-form" id="searchForm">
+                    <input type="text" class="search-input" placeholder="Buscar productos, marcas y más..." id="searchInput">
+                    <button type="submit" class="search-button" aria-label="Buscar">
+                        <i class="ph ph-magnifying-glass"></i>
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Navegación -->
+            <nav class="main-nav">
+                <a href="login.html" class="nav-link" id="navAccount" aria-label="Mi cuenta">
+                    <i class="ph ph-user"></i>
+                    <span>Cuenta</span>
+                </a>
+                <a href="#" class="nav-link" aria-label="Favoritos">
+                    <i class="ph ph-heart"></i>
+                    <span>Favoritos</span>
+                </a>
+                <a href="carrito.html" class="nav-link cart-link" aria-label="Carrito">
+                    <i class="ph ph-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </nav>
+        </div>
+        
+        <!-- Navegación Secundaria -->
+        <nav class="secondary-nav">
+            <ul class="categories-list">
+                <li><a href="categorias.html?cat=ofertas" class="category-link"><i class="ph ph-tag"></i> Ofertas</a></li>
+                <li><a href="categorias.html?cat=tiendas" class="category-link"><i class="ph ph-storefront"></i> Tiendas</a></li>
+                <li><a href="categorias.html?cat=envios" class="category-link"><i class="ph ph-package"></i> Envíos</a></li>
+                <li><a href="categorias.html?cat=protegida" class="category-link"><i class="ph ph-shield-check"></i> Compra</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Menú Mobile Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenu" onclick="toggleMobileMenu()">
+        <div class="mobile-menu-content" onclick="event.stopPropagation()">
+            <div class="mobile-menu-header">
+                <span class="logo-text">TuTienda<span class="logo-highlight">360</span></span>
+                <button class="mobile-menu-close" onclick="toggleMobileMenu()">
+                    <i class="ph ph-x"></i>
+                </button>
+            </div>
+            <nav class="mobile-menu-nav">
+                <a href="login.html"><i class="ph ph-user"></i> Mi Cuenta</a>
+                <a href="#"><i class="ph ph-heart"></i> Favoritos</a>
+                <a href="carrito.html"><i class="ph ph-shopping-cart"></i> Carrito</a>
+                <a href="categorias.html?cat=ropa"><i class="ph ph-tshirt"></i> Ropa</a>
+                <a href="categorias.html?cat=celulares"><i class="ph ph-device-mobile"></i> Celulares</a>
+                <a href="categorias.html?cat=computacion"><i class="ph ph-laptop"></i> Computación</a>
+                <a href="categorias.html?cat=hogar"><i class="ph ph-house"></i> Hogar</a>
+                <a href="categorias.html?cat=gaming"><i class="ph ph-game-controller"></i> Gaming</a>
+                <a href="categorias.html?cat=deportes"><i class="ph ph-dumbbell"></i> Deportes</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Contenido Principal -->
+    <main class="main-content">
+        <!-- Hero Banner -->
+        <section class="hero-banner">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">¡Fechas Especiales <span class="highlight">TuTienda360</span>!</h1>
+                        <p class="hero-subtitle">Hasta 50% OFF en miles de productos</p>
+                        <a href="#ofertas" class="btn btn-primary">Ver ofertas</a>
+                    </div>
+                    <div class="hero-image">
+                        <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=600&h=400&fit=crop" alt="Ofertas especiales" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categorías -->
+        <section class="categories-section">
+            <h2 class="section-title">Explora por categorías</h2>
+            <div class="categories-grid">
+                <a href="categorias.html?cat=ropa" class="category-card" data-category="ropa">
+                    <div class="category-icon"><i class="ph ph-tshirt"></i></div>
+                    <span class="category-name">Ropa</span>
+                </a>
+                <a href="categorias.html?cat=celulares" class="category-card" data-category="celulares">
+                    <div class="category-icon"><i class="ph ph-device-mobile"></i></div>
+                    <span class="category-name">Celulares</span>
+                </a>
+                <a href="categorias.html?cat=computacion" class="category-card" data-category="computacion">
+                    <div class="category-icon"><i class="ph ph-laptop"></i></div>
+                    <span class="category-name">Computación</span>
+                </a>
+                <a href="categorias.html?cat=tv-audio" class="category-card" data-category="tv-audio">
+                    <div class="category-icon"><i class="ph ph-television"></i></div>
+                    <span class="category-name">TV y Audio</span>
+                </a>
+                <a href="categorias.html?cat=hogar" class="category-card" data-category="hogar">
+                    <div class="category-icon"><i class="ph ph-house"></i></div>
+                    <span class="category-name">Hogar</span>
+                </a>
+                <a href="categorias.html?cat=gaming" class="category-card" data-category="gaming">
+                    <div class="category-icon"><i class="ph ph-game-controller"></i></div>
+                    <span class="category-name">Gaming</span>
+                </a>
+                <a href="categorias.html?cat=bebes" class="category-card" data-category="bebes">
+                    <div class="category-icon"><i class="ph ph-baby-carriage"></i></div>
+                    <span class="category-name">Bebés</span>
+                </a>
+                <a href="categorias.html?cat=deportes" class="category-card" data-category="deportes">
+                    <div class="category-icon"><i class="ph ph-dumbbell"></i></div>
+                    <span class="category-name">Deportes</span>
+                </a>
+                <a href="categorias.html?cat=autos" class="category-card" data-category="autos">
+                    <div class="category-icon"><i class="ph ph-car"></i></div>
+                    <span class="category-name">Autos</span>
+                </a>
+                <a href="categorias.html?cat=belleza" class="category-card" data-category="belleza">
+                    <div class="category-icon"><i class="ph ph-paint-brush"></i></div>
+                    <span class="category-name">Belleza</span>
+                </a>
+                <a href="categorias.html?cat=libros" class="category-card" data-category="libros">
+                    <div class="category-icon"><i class="ph ph-books"></i></div>
+                    <span class="category-name">Libros</span>
+                </a>
+                <a href="categorias.html?cat=ver-mas" class="category-card" data-category="ver-mas">
+                    <div class="category-icon"><i class="ph ph-dots-three-circle"></i></div>
+                    <span class="category-name">Ver más</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Ofertas del Día -->
+        <section class="deals-section" id="ofertas">
+            <div class="section-header">
+                <h2 class="section-title">Ofertas del día</h2>
+                <a href="#" class="see-all-link">Ver todas <i class="ph ph-caret-right"></i></a>
+            </div>
+            <div class="products-grid">
+                <!-- Producto 1 -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop" alt="Smartphone Samsung" loading="lazy">
+                        <span class="discount-badge">-25%</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Smartphone Samsung Galaxy A54 5G 128GB</h3>
+                        <div class="price-container">
+                            <span class="old-price">S/ 1,299</span>
+                            <span class="current-price">S/ 974</span>
+                        </div>
+                        <div class="shipping-info">
+                            <i class="ph ph-truck"></i>
+                            <span>Envío gratis</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCartFromHomepage(event, {id: 'samsung-a54', name: 'Smartphone Samsung Galaxy A54 5G', price: 974, image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop'})">
+                            <i class="ph ph-shopping-cart"></i>
+                            Agregar
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Producto 2 -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop" alt="Laptop HP" loading="lazy">
+                        <span class="discount-badge">-15%</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Laptop HP Pavilion 15.6" Intel Core i5</h3>
+                        <div class="price-container">
+                            <span class="old-price">S/ 2,499</span>
+                            <span class="current-price">S/ 2,124</span>
+                        </div>
+                        <div class="shipping-info">
+                            <i class="ph ph-truck"></i>
+                            <span>Envío gratis</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCartFromHomepage(event, {id: 'hp-pavilion', name: 'Laptop HP Pavilion 15.6"', price: 2124, image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop'})">
+                            <i class="ph ph-shopping-cart"></i>
+                            Agregar
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Producto 3 -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop" alt="Auriculares Sony" loading="lazy">
+                        <span class="discount-badge">-40%</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Auriculares Sony WH-1000XM5</h3>
+                        <div class="price-container">
+                            <span class="old-price">S/ 1,599</span>
+                            <span class="current-price">S/ 959</span>
+                        </div>
+                        <div class="shipping-info">
+                            <i class="ph ph-truck"></i>
+                            <span>Envío gratis</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCartFromHomepage(event, {id: 'sony-xm5', name: 'Auriculares Sony WH-1000XM5', price: 959, image: 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop'})">
+                            <i class="ph ph-shopping-cart"></i>
+                            Agregar
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Producto 4 -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400&h=400&fit=crop" alt="Apple Watch" loading="lazy">
+                        <span class="discount-badge">-30%</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Apple Watch SE 44mm GPS</h3>
+                        <div class="price-container">
+                            <span class="old-price">S/ 1,199</span>
+                            <span class="current-price">S/ 839</span>
+                        </div>
+                        <div class="shipping-info">
+                            <i class="ph ph-truck"></i>
+                            <span>Envío gratis</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCartFromHomepage(event, {id: 'apple-watch', name: 'Apple Watch SE 44mm', price: 839, image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400&h=400&fit=crop'})">
+                            <i class="ph ph-shopping-cart"></i>
+                            Agregar
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Producto 5 -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1593784991095-a20506948430?w=400&h=400&fit=crop" alt="Smart TV LG" loading="lazy">
+                        <span class="discount-badge">-20%</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Smart TV LG 55" 4K UHD</h3>
+                        <div class="price-container">
+                            <span class="old-price">S/ 1,899</span>
+                            <span class="current-price">S/ 1,519</span>
+                        </div>
+                        <div class="shipping-info">
+                            <i class="ph ph-truck"></i>
+                            <span>Envío gratis</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCartFromHomepage(event, {id: 'lg-tv', name: 'Smart TV LG 55" 4K', price: 1519, image: 'https://images.unsplash.com/photo-1593784991095-a20506948430?w=400&h=400&fit=crop'})">
+                            <i class="ph ph-shopping-cart"></i>
+                            Agregar
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Producto 6 -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=400&h=400&fit=crop" alt="Reloj Casio" loading="lazy">
+                        <span class="discount-badge">-35%</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Casio G-Shock Digital Negro</h3>
+                        <div class="price-container">
+                            <span class="old-price">S/ 399</span>
+                            <span class="current-price">S/ 259</span>
+                        </div>
+                        <div class="shipping-info">
+                            <i class="ph ph-truck"></i>
+                            <span>Envío gratis</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCartFromHomepage(event, {id: 'casio-gshock', name: 'Casio G-Shock Digital', price: 259, image: 'https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=400&h=400&fit=crop'})">
+                            <i class="ph ph-shopping-cart"></i>
+                            Agregar
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Beneficios -->
+        <section class="benefits-section">
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="ph ph-credit-card"></i></div>
+                    <h3 class="benefit-title">Pago seguro</h3>
+                    <p class="benefit-description">Protegemos tus pagos con tecnología de punta</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="ph ph-package"></i></div>
+                    <h3 class="benefit-title">Envíos rápidos</h3>
+                    <p class="benefit-description">Recibe tus productos en 24-48 horas</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="ph ph-shield-check"></i></div>
+                    <h3 class="benefit-title">Compra protegida</h3>
+                    <p class="benefit-description">Garantía de devolución si no estás satisfecho</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="ph ph-headset"></i></div>
+                    <h3 class="benefit-title">Soporte 24/7</h3>
+                    <p class="benefit-description">Estamos aquí para ayudarte cuando lo necesites</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Productos Destacados -->
+        <section class="featured-section">
+            <div class="section-header">
+                <h2 class="section-title">Productos destacados</h2>
+                <a href="#" class="see-all-link">Ver todos <i class="ph ph-caret-right"></i></a>
+            </div>
+            <div class="products-grid">
+                <!-- Producto 1 -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop" alt="Auriculares Premium" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Auriculares Premium Wireless</h3>
+                        <div class="price-container">
+                            <span class="current-price">S/ 299</span>
+                        </div>
+                        <div class="shipping-info">
+                            <i class="ph ph-truck"></i>
+                            <span>Llega mañana</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCartFromHomepage(event, {id: 'auriculares', name: 'Auriculares Premium', price: 299, image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop'})">
+                            <i class="ph ph-shopping-cart"></i>
+                            Agregar
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Producto 2 -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&h=400&fit=crop" alt="Cámara Sony" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Cámara Mirrorless Sony Alpha</h3>
+                        <div class="price-container">
+                            <span class="current-price">S/ 3,299</span>
+                        </div>
+                        <div class="shipping-info">
+                            <i class="ph ph-truck"></i>
+                            <span>Envío gratis</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCartFromHomepage(event, {id: 'sony-alpha', name: 'Cámara Sony Alpha', price: 3299, image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&h=400&fit=crop'})">
+                            <i class="ph ph-shopping-cart"></i>
+                            Agregar
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Producto 3 -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400&h=400&fit=crop" alt="iPad Air" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Tablet iPad Air 64GB WiFi</h3>
+                        <div class="price-container">
+                            <span class="current-price">S/ 2,199</span>
+                        </div>
+                        <div class="shipping-info">
+                            <i class="ph ph-truck"></i>
+                            <span>Envío gratis</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCartFromHomepage(event, {id: 'ipad-air', name: 'iPad Air 64GB', price: 2199, image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400&h=400&fit=crop'})">
+                            <i class="ph ph-shopping-cart"></i>
+                            Agregar
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Producto 4 -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?w=400&h=400&fit=crop" alt="Jardinería" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Kit de Jardinería Interior</h3>
+                        <div class="price-container">
+                            <span class="current-price">S/ 89</span>
+                        </div>
+                        <div class="shipping-info">
+                            <i class="ph ph-truck"></i>
+                            <span>Envío gratis</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCartFromHomepage(event, {id: 'jardineria', name: 'Kit Jardinería', price: 89, image: 'https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?w=400&h=400&fit=crop'})">
+                            <i class="ph ph-shopping-cart"></i>
+                            Agregar
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4 class="footer-title">Sobre TuTienda360</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Quiénes somos</a></li>
+                        <li><a href="#">Trabaja con nosotros</a></li>
+                        <li><a href="#">Prensa</a></li>
+                        <li><a href="#">Inversionistas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Ayuda</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Centro de ayuda</a></li>
+                        <li><a href="#">Cómo comprar</a></li>
+                        <li><a href="#">Cómo vender</a></li>
+                        <li><a href="#">Envíos</a></li>
+                        <li><a href="#">Devoluciones</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Contacto</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Atención al cliente</a></li>
+                        <li><a href="#">Chat en vivo</a></li>
+                        <li><a href="#">Teléfono: 0800-123-456</a></li>
+                        <li><a href="#">Email: ayuda@tutienda360.pe</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Síguenos</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="ph ph-twitter-logo"></i></a>
+                        <a href="#" class="social-link" aria-label="YouTube"><i class="ph ph-youtube-logo"></i></a>
+                        <a href="#" class="social-link" aria-label="TikTok"><i class="ph ph-tiktok-logo"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p class="copyright">© 2026 TuTienda360 Perú. Todos los derechos reservados.</p>
+                    <div class="footer-legal">
+                        <a href="#">Términos y condiciones</a>
+                        <a href="#">Política de privacidad</a>
+                        <a href="#">Libro de reclamaciones</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>

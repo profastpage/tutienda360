@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión / Registro - TuTienda360</title>
+    <meta name="description" content="Accede a tu cuenta de TuTienda360 o crea una nueva">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/auth.css">
+</head>
+<body class="auth-page">
+    <div class="auth-container">
+        <!-- Logo -->
+        <a href="index.html" class="auth-logo">
+            <span class="logo-text">TuTienda<span class="logo-highlight">360</span></span>
+        </a>
+        
+        <!-- Tabs de Navegación -->
+        <div class="auth-tabs">
+            <button class="auth-tab active" data-tab="login" onclick="switchTab('login')">
+                Iniciar Sesión
+            </button>
+            <button class="auth-tab" data-tab="registro" onclick="switchTab('registro')">
+                Crear Cuenta
+            </button>
+        </div>
+        
+        <!-- Formulario de Login -->
+        <div class="auth-form-container active" id="loginForm">
+            <h1 class="auth-title">¡Bienvenido de nuevo!</h1>
+            <p class="auth-subtitle">Ingresa tus datos para continuar</p>
+            
+            <form onsubmit="handleLogin(event)" class="auth-form">
+                <div class="form-group">
+                    <label for="loginEmail" class="form-label">Correo electrónico</label>
+                    <div class="input-wrapper">
+                        <i class="ph ph-envelope"></i>
+                        <input 
+                            type="email" 
+                            id="loginEmail" 
+                            class="form-input" 
+                            placeholder="tu@email.com"
+                            required
+                        >
+                    </div>
+                    <span class="form-error" id="loginEmailError"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="loginPassword" class="form-label">Contraseña</label>
+                    <div class="input-wrapper">
+                        <i class="ph ph-lock"></i>
+                        <input 
+                            type="password" 
+                            id="loginPassword" 
+                            class="form-input" 
+                            placeholder="••••••••"
+                            required
+                        >
+                        <button type="button" class="password-toggle" onclick="togglePassword('loginPassword', this)">
+                            <i class="ph ph-eye"></i>
+                        </button>
+                    </div>
+                    <span class="form-error" id="loginPasswordError"></span>
+                </div>
+                
+                <div class="form-options">
+                    <label class="checkbox-wrapper">
+                        <input type="checkbox" id="rememberMe">
+                        <span class="checkmark"></span>
+                        <span>Recordarme por 30 días</span>
+                    </label>
+                    <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-auth">
+                    Iniciar Sesión
+                </button>
+            </form>
+            
+            <div class="auth-divider">
+                <span>o continúa con</span>
+            </div>
+            
+            <div class="social-login">
+                <button class="btn-social btn-google" onclick="socialLogin('google')">
+                    <i class="ph ph-google-logo"></i>
+                    Google
+                </button>
+                <button class="btn-social btn-facebook" onclick="socialLogin('facebook')">
+                    <i class="ph ph-facebook-logo"></i>
+                    Facebook
+                </button>
+            </div>
+        </div>
+        
+        <!-- Formulario de Registro -->
+        <div class="auth-form-container" id="registroForm">
+            <h1 class="auth-title">Crea tu cuenta gratis</h1>
+            <p class="auth-subtitle">Únete a miles de compradores felices</p>
+            
+            <form onsubmit="handleRegistro(event)" class="auth-form">
+                <div class="form-group">
+                    <label for="registroNombre" class="form-label">Nombre completo</label>
+                    <div class="input-wrapper">
+                        <i class="ph ph-user"></i>
+                        <input 
+                            type="text" 
+                            id="registroNombre" 
+                            class="form-input" 
+                            placeholder="Juan Pérez"
+                            required
+                        >
+                    </div>
+                    <span class="form-error" id="registroNombreError"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="registroEmail" class="form-label">Correo electrónico</label>
+                    <div class="input-wrapper">
+                        <i class="ph ph-envelope"></i>
+                        <input 
+                            type="email" 
+                            id="registroEmail" 
+                            class="form-input" 
+                            placeholder="tu@email.com"
+                            required
+                        >
+                    </div>
+                    <span class="form-error" id="registroEmailError"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="registroTelefono" class="form-label">Teléfono</label>
+                    <div class="input-wrapper">
+                        <i class="ph ph-phone"></i>
+                        <input 
+                            type="tel" 
+                            id="registroTelefono" 
+                            class="form-input" 
+                            placeholder="999 999 999"
+                            pattern="[0-9]{9}"
+                            required
+                        >
+                    </div>
+                    <span class="form-error" id="registroTelefonoError"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="registroPassword" class="form-label">Contraseña</label>
+                    <div class="input-wrapper">
+                        <i class="ph ph-lock"></i>
+                        <input 
+                            type="password" 
+                            id="registroPassword" 
+                            class="form-input" 
+                            placeholder="Mínimo 8 caracteres"
+                            minlength="8"
+                            required
+                        >
+                        <button type="button" class="password-toggle" onclick="togglePassword('registroPassword', this)">
+                            <i class="ph ph-eye"></i>
+                        </button>
+                    </div>
+                    <div class="password-strength" id="passwordStrength"></div>
+                    <span class="form-error" id="registroPasswordError"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="registroConfirmPassword" class="form-label">Confirmar contraseña</label>
+                    <div class="input-wrapper">
+                        <i class="ph ph-lock"></i>
+                        <input 
+                            type="password" 
+                            id="registroConfirmPassword" 
+                            class="form-input" 
+                            placeholder="••••••••"
+                            required
+                        >
+                    </div>
+                    <span class="form-error" id="registroConfirmPasswordError"></span>
+                </div>
+                
+                <div class="form-options">
+                    <label class="checkbox-wrapper">
+                        <input type="checkbox" id="acceptTerms" required>
+                        <span class="checkmark"></span>
+                        <span>Acepto los <a href="#">Términos y condiciones</a> y la <a href="#">Política de privacidad</a></span>
+                    </label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-auth">
+                    Crear mi cuenta
+                </button>
+            </form>
+        </div>
+        
+        <!-- Beneficios -->
+        <div class="auth-benefits">
+            <div class="benefit-item">
+                <i class="ph ph-truck"></i>
+                <span>Envíos gratis desde S/ 199</span>
+            </div>
+            <div class="benefit-item">
+                <i class="ph ph-shield-check"></i>
+                <span>Compra protegida</span>
+            </div>
+            <div class="benefit-item">
+                <i class="ph ph-arrow-counter-clockwise"></i>
+                <span>Devolución gratis</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Toast Container -->
+    <div id="toastContainer"></div>
+    
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/auth.js"></script>
+</body>
+</html>
